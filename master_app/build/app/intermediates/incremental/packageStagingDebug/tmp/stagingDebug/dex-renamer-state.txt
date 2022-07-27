@@ -1,0 +1,4 @@
+#Mon Jul 25 17:17:07 UZT 2022
+base.0=/Users/itotdel/show_upp_master/master_app/build/app/intermediates/dex/stagingDebug/mergeDexStagingDebug/classes.dex
+renamed.0=classes.dex
+path.0=classes.dex

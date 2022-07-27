@@ -1,0 +1,4 @@
+#Mon Jul 25 17:31:02 UZT 2022
+base.0=/Users/itotdel/show_upp_master/master_app/build/app/intermediates/dex/productionProfile/mergeDexProductionProfile/classes.dex
+renamed.0=classes.dex
+path.0=classes.dex
