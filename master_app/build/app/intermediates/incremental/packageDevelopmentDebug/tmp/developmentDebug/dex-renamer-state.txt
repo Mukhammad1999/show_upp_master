@@ -1,4 +1,0 @@
-#Thu Jul 28 00:52:18 UZT 2022
-base.0=E\:\\show_upp_master\\master_app\\build\\app\\intermediates\\dex\\developmentDebug\\mergeDexDevelopmentDebug\\classes.dex
-renamed.0=classes.dex
-path.0=classes.dex
