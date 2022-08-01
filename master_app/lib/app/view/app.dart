@@ -10,7 +10,6 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:master_app/app/navigation/navigation_module.dart';
 import 'package:master_app/app/ui/style/app_theme.dart';
-import 'package:master_app/l10n/l10n.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -21,11 +20,13 @@ class App extends StatelessWidget {
       module: NavigationModule(),
       child: MaterialApp.router(
         theme: AppTheme.lightTheme,
-        localizationsDelegates: const [
-          AppLocalizations.delegate,
-          GlobalMaterialLocalizations.delegate,
-        ],
-        supportedLocales: AppLocalizations.supportedLocales,
+        //TODO Implement Easy Localizations
+
+        // localizationsDelegates: const [
+        //   AppLocalizations.delegate,
+        //   GlobalMaterialLocalizations.delegate,
+        // ],
+        // supportedLocales: AppLocalizations.supportedLocales,
         routerDelegate: Modular.routerDelegate,
         routeInformationParser: Modular.routeInformationParser,
       ),
