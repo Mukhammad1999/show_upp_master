@@ -7,4 +7,17 @@ abstract class AppTypography {
     fontSize: 14.83,
     fontWeight: FontWeight.w500,
   );
+
+  static const TextStyle semiboldText = TextStyle(
+    fontFamily: 'Montserrat',
+    fontSize: 22.81,
+    fontWeight: FontWeight.w700,
+  );
+
+  static const TextStyle buttonTextStyle = TextStyle(
+    fontFamily: 'Montserrat',
+    fontSize: 14.83,
+    letterSpacing: 1.65,
+    fontWeight: FontWeight.w500,
+  );
 }

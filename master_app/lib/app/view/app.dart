@@ -5,8 +5,8 @@
 // license that can be found in the LICENSE file or at
 // https://opensource.org/licenses/MIT.
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:master_app/app/navigation/navigation_module.dart';
 import 'package:master_app/app/ui/style/app_theme.dart';
@@ -16,19 +16,27 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ModularApp(
-      module: NavigationModule(),
-      child: MaterialApp.router(
-        theme: AppTheme.lightTheme,
-        //TODO Implement Easy Localizations
-
-        // localizationsDelegates: const [
-        //   AppLocalizations.delegate,
-        //   GlobalMaterialLocalizations.delegate,
-        // ],
-        // supportedLocales: AppLocalizations.supportedLocales,
-        routerDelegate: Modular.routerDelegate,
-        routeInformationParser: Modular.routeInformationParser,
+    return EasyLocalization(
+      supportedLocales: const [
+        Locale('ru'),
+        Locale('en'),
+        Locale('uz'),
+      ],
+      path: 'assets/l10n',
+      fallbackLocale: const Locale('ru'),
+      useOnlyLangCode: true,
+      child: ModularApp(
+        module: NavigationModule(),
+        child: Builder(builder: (context) {
+          return MaterialApp.router(
+            theme: AppTheme.lightTheme,
+            locale: context.locale,
+            routerDelegate: Modular.routerDelegate,
+            localizationsDelegates: context.localizationDelegates,
+            supportedLocales: context.supportedLocales,
+            routeInformationParser: Modular.routeInformationParser,
+          );
+        }),
       ),
     );
   }

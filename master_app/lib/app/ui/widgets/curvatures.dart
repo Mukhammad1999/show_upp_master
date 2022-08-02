@@ -56,7 +56,7 @@ class LeftToRightCurvature extends CustomClipper<Path> {
 class LinedCurvature extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
-    final controlPoint1 = Offset(size.width - size.width / 5, size.height - 70);
+    final controlPoint1 = Offset(size.width - size.width / 5, size.height - 20);
     final controlPoint2 = Offset(size.width / 5, size.height - 100);
     final endPoint = Offset(0, size.height);
     //fromRightToLeft
@@ -75,7 +75,7 @@ class LinedCurvature extends CustomClipper<Path> {
   }
 
   @override
-  bool shouldReclip(covariant CustomClipper<Path> oldClipper) => false;
+  bool shouldReclip(covariant CustomClipper<Path> oldClipper) => true;
 }
 
 // enum to define which curvature to use
