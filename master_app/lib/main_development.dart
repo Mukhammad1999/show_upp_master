@@ -14,5 +14,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
 
-  await bootstrap(() => const App());
+  await bootstrap(
+    () => const App(),
+  );
 }
