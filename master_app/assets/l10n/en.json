@@ -1,5 +1,8 @@
 {
     "choose_role_question":"Choose your role",
     "master": "MASTER",
-    "saloon": "SALOON"
+    "saloon": "SALOON",
+    "your_data": "Your data",
+    "fill_in_your_data_des": "Fill in your data to proceed. (all fields are required)"
+   
 }

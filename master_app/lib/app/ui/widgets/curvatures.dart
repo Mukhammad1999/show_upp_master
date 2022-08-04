@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
 ///Gives the curvature, where the right side is bigger to left side.
-class RightToLeftCurvature extends CustomClipper<Path> {
+class RightToLeftCurvature extends ContinuousRectangleBorder {
   @override
-  Path getClip(Size size) {
-    final controlPoint1 = Offset(size.width - size.width / 5, size.height);
-    final controlPoint2 = Offset(size.width / 1.5, size.height - 120);
-    final endPoint = Offset(0, size.height - 50);
+  Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
+    final controlPoint1 = Offset(rect.width - rect.width / 5, rect.height);
+    final controlPoint2 = Offset(rect.width / 1.5, rect.height - 120);
+    final endPoint = Offset(0, rect.height - 50);
     //fromRightToLeft
     return Path()
-      ..lineTo(size.width, 0)
-      ..lineTo(size.width, size.height)
+      ..lineTo(rect.width, 0)
+      ..lineTo(rect.width, rect.height)
       ..cubicTo(
         controlPoint1.dx,
         controlPoint1.dy,
@@ -21,22 +21,19 @@ class RightToLeftCurvature extends CustomClipper<Path> {
       )
       ..close();
   }
-
-  @override
-  bool shouldReclip(covariant CustomClipper<Path> oldClipper) => false;
 }
 
 ///Draws Left To Right Curvature, where left side is bigger than right.
-class LeftToRightCurvature extends CustomClipper<Path> {
+class LeftToRightCurvature extends ContinuousRectangleBorder {
   @override
-  Path getClip(Size size) {
-    final controlPoint1 = Offset(size.width - size.width / 5, size.height);
-    final controlPoint2 = Offset(size.width / 1.5, size.height - 120);
-    final endPoint = Offset(0, size.height - 50);
+  Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
+    final controlPoint1 = Offset(rect.width - rect.width / 5, rect.height);
+    final controlPoint2 = Offset(rect.width / 1.5, rect.height - 120);
+    final endPoint = Offset(0, rect.height - 50);
     //fromRightToLeft
     return Path()
-      ..lineTo(size.width, 0)
-      ..lineTo(size.width, size.height)
+      ..lineTo(rect.width, 0)
+      ..lineTo(rect.width, rect.height)
       ..cubicTo(
         controlPoint1.dx,
         controlPoint1.dy,
@@ -47,22 +44,19 @@ class LeftToRightCurvature extends CustomClipper<Path> {
       )
       ..close();
   }
-
-  @override
-  bool shouldReclip(covariant CustomClipper<Path> oldClipper) => false;
 }
 
 ///Draws LinedCurvature, where
-class LinedCurvature extends CustomClipper<Path> {
+class LinedCurvature extends ContinuousRectangleBorder {
   @override
-  Path getClip(Size size) {
-    final controlPoint1 = Offset(size.width - size.width / 5, size.height - 20);
-    final controlPoint2 = Offset(size.width / 5, size.height - 100);
-    final endPoint = Offset(0, size.height);
+  Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
+    final controlPoint1 = Offset(rect.width - rect.width / 5, rect.height - 20);
+    final controlPoint2 = Offset(rect.width / 5, rect.height - 100);
+    final endPoint = Offset(0, rect.height);
     //fromRightToLeft
     return Path()
-      ..lineTo(size.width, 0)
-      ..lineTo(size.width, size.height - 100)
+      ..lineTo(rect.width, 0)
+      ..lineTo(rect.width, rect.height - 100)
       ..cubicTo(
         controlPoint1.dx,
         controlPoint1.dy,
@@ -73,9 +67,6 @@ class LinedCurvature extends CustomClipper<Path> {
       )
       ..close();
   }
-
-  @override
-  bool shouldReclip(covariant CustomClipper<Path> oldClipper) => true;
 }
 
 // enum to define which curvature to use
