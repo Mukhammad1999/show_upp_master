@@ -3,6 +3,8 @@
     "master": "MASTER",
     "saloon": "SALOON",
     "your_data": "Your data",
-    "fill_in_your_data_des": "Fill in your data to proceed. (all fields are required)"
+    "fill_in_your_data_des": "Fill in your data to proceed. (all fields are required)",
+    "name": "Name",
+    "surname":"Surname"
    
 }

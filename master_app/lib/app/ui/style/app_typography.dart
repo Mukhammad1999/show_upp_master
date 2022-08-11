@@ -9,16 +9,23 @@ abstract class AppTypography {
     letterSpacing: 1.65,
   );
 
+  ///This style is oftenly usen with titles on the page
   static const TextStyle semiboldText = TextStyle(
     fontFamily: 'Montserrat',
     fontSize: 22.81,
     fontWeight: FontWeight.w700,
   );
 
+  ///This style is oftenly usen with buttonStyle
   static const TextStyle buttonTextStyle = TextStyle(
     fontFamily: 'Montserrat',
     fontSize: 14.83,
     letterSpacing: 1.65,
+    fontWeight: FontWeight.w500,
+  );
+  static const TextStyle hintStyle = TextStyle(
+    fontFamily: 'Montserrat',
+    fontSize: 14,
     fontWeight: FontWeight.w500,
   );
 }
