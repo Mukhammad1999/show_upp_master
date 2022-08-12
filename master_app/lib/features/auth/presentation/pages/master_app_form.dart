@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:master_app/app/index/index.dart';
+import 'package:master_app/features/auth/domain/entities/signup_form_entities.dart';
 import 'package:master_app/features/auth/presentation/controller/bloc/master_form_bloc.dart';
 import 'package:master_app/features/auth/presentation/widgets/phone_form_text_field.dart';
 import 'package:master_app/features/auth/presentation/widgets/string_form_erase_button.dart';
@@ -76,7 +77,30 @@ class MasterFormRegistration extends StatelessWidget {
                   const SizedBox(
                     height: 34.55,
                   ),
-                  const PhoneFormTextField(),
+                  PhoneFormTextField(
+                    isFullFilled:
+                        state.masterFormEntity.phoneNumber!.trim().length == 12,
+                    onChanged: (phoneNumber) {
+                      masterBloc.add(
+                        MasterFormEvent.update(
+                          updateEvent: UpdateMasterForm.phoneNumber(
+                            phoneNumber: phoneNumber,
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+
+                  const SizedBox(
+                    height: 36,
+                  ),
+
+                  Column(
+                    children: List.generate(
+                      Gender.values.length,
+                      (index) => const GenderRadioButton(),
+                    ),
+                  )
                 ],
               );
             },
@@ -84,5 +108,16 @@ class MasterFormRegistration extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class GenderRadioButton extends StatelessWidget {
+  const GenderRadioButton({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }

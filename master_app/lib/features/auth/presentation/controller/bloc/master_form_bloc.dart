@@ -36,7 +36,7 @@ class MasterFormBloc extends Bloc<MasterFormEvent, MasterFormState> {
           surname: (surname) =>
               state.masterFormEntity.copyWith(surname: surname),
           phoneNumber: (phoneNumber) =>
-              state.masterFormEntity.copyWith(surname: phoneNumber),
+              state.masterFormEntity.copyWith(phoneNumber: phoneNumber),
           gender: (gender) => state.masterFormEntity.copyWith(gender: gender),
         ),
       ),
