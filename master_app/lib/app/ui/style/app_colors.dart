@@ -9,4 +9,5 @@ abstract class AppColorsLight {
   static const Color hintColor = Color(0xFF727272);
   static const Color indicatorColor = Color(0xFF212529);
   static const Color textColor = Color(0xFF313131);
+  static const Color descriptionColor = Color(0xFF6C7B8A);
 }

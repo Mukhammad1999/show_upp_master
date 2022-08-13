@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:easy_localization/easy_localization.dart';
 import 'package:equatable/equatable.dart';
 
 abstract class SignUpFormEntity extends Equatable {
@@ -49,8 +50,17 @@ class SaloonFormEntity extends SignUpFormEntity {
   List<Object?> get props => throw UnimplementedError();
 }
 
-enum Gender {
-  male,
-  female,
-  other,
+enum Gender { male, female, other }
+
+extension GenderExtension on Gender {
+  String get genderToString {
+    switch (this) {
+      case Gender.male:
+        return 'male'.tr();
+      case Gender.female:
+        return 'female'.tr();
+      case Gender.other:
+        return 'non-binary'.tr();
+    }
+  }
 }

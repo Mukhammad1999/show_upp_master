@@ -18,6 +18,7 @@ class MasterFormBloc extends Bloc<MasterFormEvent, MasterFormState> {
               name: '',
               surname: '',
               phoneNumber: '',
+              gender: Gender.female,
             ),
           ),
         ) {

@@ -10,6 +10,7 @@ abstract class AppTheme {
         disabledColor: AppColorsLight.disabledColor,
         hintColor: AppColorsLight.hintColor,
         indicatorColor: AppColorsLight.indicatorColor,
+        highlightColor: AppColorsLight.descriptionColor,
         appBarTheme: const AppBarTheme(
           elevation: 0,
           centerTitle: true,

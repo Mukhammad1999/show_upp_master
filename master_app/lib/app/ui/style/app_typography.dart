@@ -16,6 +16,21 @@ abstract class AppTypography {
     fontWeight: FontWeight.w700,
   );
 
+  ///This style is used with buttons and small text on the pages
+  static const TextStyle smallText = TextStyle(
+    fontFamily: 'Montserrat',
+    fontSize: 13,
+    fontWeight: FontWeight.w500,
+  );
+
+  ///This style is used when describing on the pages
+  static const TextStyle smallDescription = TextStyle(
+    fontFamily: 'Montserrat',
+    fontSize: 13,
+    fontWeight: FontWeight.w400,
+    letterSpacing: -0.17,
+  );
+
   ///This style is oftenly usen with buttonStyle
   static const TextStyle buttonTextStyle = TextStyle(
     fontFamily: 'Montserrat',

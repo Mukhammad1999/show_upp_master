@@ -2,10 +2,11 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:master_app/app/index/index.dart';
+import 'package:master_app/app/ui/style/app_typography.dart';
+import 'package:master_app/app/ui/widgets/buttons/buttons.dart';
 import 'package:master_app/features/auth/domain/entities/signup_form_entities.dart';
 import 'package:master_app/features/auth/presentation/controller/bloc/master_form_bloc.dart';
-import 'package:master_app/features/auth/presentation/widgets/phone_form_text_field.dart';
-import 'package:master_app/features/auth/presentation/widgets/string_form_erase_button.dart';
+import 'package:master_app/features/auth/presentation/widgets/index.dart';
 
 class MasterFormRegistration extends StatelessWidget {
   const MasterFormRegistration({super.key});
@@ -89,18 +90,69 @@ class MasterFormRegistration extends StatelessWidget {
                         ),
                       );
                     },
+                    onErase: () {
+                      masterBloc.add(
+                        const MasterFormEvent.update(
+                          updateEvent: UpdateMasterForm.phoneNumber(
+                            phoneNumber: '',
+                          ),
+                        ),
+                      );
+                    },
                   ),
-
                   const SizedBox(
-                    height: 36,
+                    height: 10,
                   ),
-
                   Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: List.generate(
                       Gender.values.length,
-                      (index) => const GenderRadioButton(),
+                      (index) => Padding(
+                        padding: const EdgeInsets.only(bottom: 5),
+                        child: GestureDetector(
+                          onTap: () {
+                            masterBloc.add(
+                              MasterFormEvent.update(
+                                updateEvent: UpdateMasterForm.gender(
+                                  gender: Gender.values[index],
+                                ),
+                              ),
+                            );
+                          },
+                          child: GenderRadioButton(
+                            gender: Gender.values[index],
+                            isSelected: state.masterFormEntity.gender ==
+                                Gender.values[index],
+                          ),
+                        ),
+                      ),
                     ),
-                  )
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    'fill_in_master_form_description'.tr(),
+                    textAlign: TextAlign.center,
+                    maxLines: 2,
+                    style: AppTypography.smallDescription.copyWith(
+                      color: Theme.of(context).highlightColor,
+                    ),
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  const SizedBox(
+                    height: 34.55,
+                  ),
+                  AppTextButton(
+                    title: 'confirm'.tr(),
+                    onPressed:
+                        (state.masterFormEntity.phoneNumber!.trim().length ==
+                                    12) &&
+                                (state.masterFormEntity.surname!.length >= 2) &&
+                                (state.masterFormEntity.name!.length >= 2)
+                            ? () {}
+                            : null,
+                  ),
                 ],
               );
             },
@@ -108,16 +160,5 @@ class MasterFormRegistration extends StatelessWidget {
         ),
       ),
     );
-  }
-}
-
-class GenderRadioButton extends StatelessWidget {
-  const GenderRadioButton({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
   }
 }

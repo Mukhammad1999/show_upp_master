@@ -75,9 +75,18 @@ class EraseButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onErase,
-      child: isFullFill
-          ? const FullFillTextFormButton()
-          : const NonFullFillTextFormButton(),
+      child: AnimatedSwitcher(
+        duration: const Duration(milliseconds: 230),
+        transitionBuilder: (child, animation) {
+          return ScaleTransition(
+            scale: animation,
+            child: child,
+          );
+        },
+        child: isFullFill
+            ? const FullFillTextFormButton()
+            : const NonFullFillTextFormButton(),
+      ),
     );
   }
 }

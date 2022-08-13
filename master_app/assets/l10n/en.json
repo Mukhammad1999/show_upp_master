@@ -5,6 +5,11 @@
     "your_data": "Your data",
     "fill_in_your_data_des": "Fill in your data to proceed. (all fields are required)",
     "name": "Name",
-    "surname":"Surname"
+    "surname":"Surname",
+    "male": "Male",
+    "female": "Female",
+    "non-binary": "Non-binary",
+    "fill_in_master_form_description": "Fill in the form to proceed next (all fields are required)",
+    "confirm": "CONFIRM"
    
 }
