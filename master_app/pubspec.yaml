@@ -21,6 +21,7 @@ dependencies:
   freezed_annotation: ^2.1.0
   equatable: ^2.0.3
   mask_input_formatter: ^0.0.3
+  dio: ^4.0.6
   
   
   
