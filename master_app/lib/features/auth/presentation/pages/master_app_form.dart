@@ -101,14 +101,14 @@ class MasterFormRegistration extends StatelessWidget {
                     },
                   ),
                   const SizedBox(
-                    height: 10,
+                    height: 35,
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: List.generate(
                       Gender.values.length,
                       (index) => Padding(
-                        padding: const EdgeInsets.only(bottom: 5),
+                        padding: const EdgeInsets.only(bottom: 17),
                         child: GestureDetector(
                           onTap: () {
                             masterBloc.add(
@@ -127,9 +127,6 @@ class MasterFormRegistration extends StatelessWidget {
                         ),
                       ),
                     ),
-                  ),
-                  const SizedBox(
-                    height: 10,
                   ),
                   Text(
                     'fill_in_master_form_description'.tr(),
@@ -152,6 +149,9 @@ class MasterFormRegistration extends StatelessWidget {
                                 (state.masterFormEntity.name!.length >= 2)
                             ? () {}
                             : null,
+                  ),
+                  const SizedBox(
+                    height: 10,
                   ),
                 ],
               );

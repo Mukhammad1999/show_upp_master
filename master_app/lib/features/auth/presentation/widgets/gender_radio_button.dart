@@ -53,13 +53,16 @@ class SelectedRadioButton extends StatelessWidget {
           const SizedBox(
             width: 10,
           ),
-          Text(
-            title,
-            style: AppTypography.smallText.copyWith(
-              color: Theme.of(context).backgroundColor,
+          Padding(
+            padding: const EdgeInsets.only(right: 7.0),
+            child: Text(
+              title,
+              style: AppTypography.smallText.copyWith(
+                color: Theme.of(context).backgroundColor,
+              ),
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
             ),
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
           )
         ],
       ),
