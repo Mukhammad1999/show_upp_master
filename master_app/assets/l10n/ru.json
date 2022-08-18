@@ -1,14 +1,14 @@
 {
-    "choose_role_question":"Кем вы являетесь?",
-    "master": "МАСТЕР",
-    "saloon": "САЛОН",
-    "your_data": "Ваши данные",
-    "fill_in_your_data_des": "Заполните данные для последующих действий (все пункты объязательны)",
-    "name": "Имя",
-    "surname":"Фамилия",
-    "male": "Мужчина",
-    "female": "Женщина",
-    "non-binary": "Не бинарный/ая",
-    "fill_in_master_form_description": "Заполните данные для последующих действий (все пункты обязательны)",
-    "confirm": "ПОДТВЕРДИТЬ"
+    "role.choose_role_question":"Кем вы являетесь?",
+    "role.master": "МАСТЕР",
+    "role.saloon": "САЛОН",
+    "auth.your_data": "Ваши данные",
+    "auth.fill_in_your_data_des": "Заполните данные для последующих действий (все пункты объязательны)",
+    "auth.name": "Имя",
+    "auth.surname":"Фамилия",
+    "auth.male": "Мужчина",
+    "auth.female": "Женщина",
+    "auth.non-binary": "Не бинарный/ая",
+    "auth.fill_in_master_form_description": "Заполните данные для последующих действий (все пункты обязательны)",
+    "auth.confirm": "ПОДТВЕРДИТЬ"
 }

@@ -1,14 +1,15 @@
 {
-    "choose_role_question":"Kim bo'lib ishlaysiz?",
-    "master": "USTA",
-    "saloon": "SALON","your_data": "sizning ma'lumotlaringiz",
-    "fill_in_your_data_des": "keyingi harakatlar uchun ma'lumotlarni to'ldiring(barcha fikrlar talab qilinadi)",
-    "name": "Ism",
-    "surname":"Familiya",
-    "male": "Erkak",
-    "female": "Ayol",
-    "non-binary": "Boshqa",
-    "fill_in_master_form_description": "Keyingi harakatlar uchun ma'lumotlarni to'ldiring (barcha fikrlar talab qilinadi)",
-    "confirm": "TASHDIQLASH"
+    "role.choose_role_question":"Kim bo'lib ishlaysiz?",
+    "role.master": "USTA",
+    "role.saloon": "SALON",
+    "auth.your_data": "sizning ma'lumotlaringiz",
+    "auth.fill_in_your_data_des": "keyingi harakatlar uchun ma'lumotlarni to'ldiring(barcha fikrlar talab qilinadi)",
+    "auth.name": "Ism",
+    "auth.surname":"Familiya",
+    "auth.male": "Erkak",
+    "auth.female": "Ayol",
+    "auth.non-binary": "Boshqa",
+    "auth.fill_in_master_form_description": "Keyingi harakatlar uchun ma'lumotlarni to'ldiring (barcha fikrlar talab qilinadi)",
+    "auth.confirm": "TASDIQLASH"
     
 }
