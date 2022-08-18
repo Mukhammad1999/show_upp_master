@@ -13,7 +13,7 @@ class MasterFormBloc extends Bloc<MasterFormEvent, MasterFormState> {
   MasterFormBloc({required AuthRepository authRepository})
       : _authRepository = authRepository,
         super(
-          const MasterFormState(
+          const FormInitial(
             masterFormEntity: MasterFormEntity(
               name: '',
               surname: '',
@@ -44,7 +44,14 @@ class MasterFormBloc extends Bloc<MasterFormEvent, MasterFormState> {
     );
   }
 
-  FutureOr<void> _submitForm(SubmitForm event, Emitter<MasterFormState> emit) {
-    //do smth
+  FutureOr<void> _submitForm(
+      SubmitForm event, Emitter<MasterFormState> emit) async {
+    emit(FormLoading(masterFormEntity: state.masterFormEntity));
+    try {
+      final result = await _authRepository.signUp(state.masterFormEntity);
+      emit(FormSuccess(masterFormEntity: state.masterFormEntity));
+    } catch (e) {
+      emit(FormError(masterFormEntity: state.masterFormEntity));
+    }
   }
 }

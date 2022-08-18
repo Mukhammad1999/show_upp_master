@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:master_app/app/index/index.dart';
 import 'package:master_app/app/navigation/route_names.dart';
+import 'package:master_app/app/ui/widgets/buttons/buttons.dart';
 import 'package:master_app/app/ui/widgets/cartoon_displayer.dart';
-import '../../widgets/buttons/buttons.dart';
 
 class ChooseRolePage extends StatelessWidget {
   const ChooseRolePage({super.key});

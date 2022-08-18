@@ -984,6 +984,56 @@ abstract class UpdateGender implements UpdateMasterForm {
 /// @nodoc
 mixin _$MasterFormState {
   MasterFormEntity get masterFormEntity => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(MasterFormEntity masterFormEntity) initial,
+    required TResult Function(MasterFormEntity masterFormEntity) loading,
+    required TResult Function(MasterFormEntity masterFormEntity) success,
+    required TResult Function(MasterFormEntity masterFormEntity) error,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(MasterFormEntity masterFormEntity)? initial,
+    TResult Function(MasterFormEntity masterFormEntity)? loading,
+    TResult Function(MasterFormEntity masterFormEntity)? success,
+    TResult Function(MasterFormEntity masterFormEntity)? error,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(MasterFormEntity masterFormEntity)? initial,
+    TResult Function(MasterFormEntity masterFormEntity)? loading,
+    TResult Function(MasterFormEntity masterFormEntity)? success,
+    TResult Function(MasterFormEntity masterFormEntity)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FormInitial value) initial,
+    required TResult Function(FormLoading value) loading,
+    required TResult Function(FormSuccess value) success,
+    required TResult Function(FormError value) error,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(FormInitial value)? initial,
+    TResult Function(FormLoading value)? loading,
+    TResult Function(FormSuccess value)? success,
+    TResult Function(FormError value)? error,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FormInitial value)? initial,
+    TResult Function(FormLoading value)? loading,
+    TResult Function(FormSuccess value)? success,
+    TResult Function(FormError value)? error,
+    required TResult orElse(),
+  }) =>
+      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $MasterFormStateCopyWith<MasterFormState> get copyWith =>
@@ -1021,31 +1071,31 @@ class _$MasterFormStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$$FormStateCopyWith<$Res>
+abstract class _$$FormInitialCopyWith<$Res>
     implements $MasterFormStateCopyWith<$Res> {
-  factory _$$FormStateCopyWith(
-          _$FormState value, $Res Function(_$FormState) then) =
-      __$$FormStateCopyWithImpl<$Res>;
+  factory _$$FormInitialCopyWith(
+          _$FormInitial value, $Res Function(_$FormInitial) then) =
+      __$$FormInitialCopyWithImpl<$Res>;
   @override
   $Res call({MasterFormEntity masterFormEntity});
 }
 
 /// @nodoc
-class __$$FormStateCopyWithImpl<$Res>
+class __$$FormInitialCopyWithImpl<$Res>
     extends _$MasterFormStateCopyWithImpl<$Res>
-    implements _$$FormStateCopyWith<$Res> {
-  __$$FormStateCopyWithImpl(
-      _$FormState _value, $Res Function(_$FormState) _then)
-      : super(_value, (v) => _then(v as _$FormState));
+    implements _$$FormInitialCopyWith<$Res> {
+  __$$FormInitialCopyWithImpl(
+      _$FormInitial _value, $Res Function(_$FormInitial) _then)
+      : super(_value, (v) => _then(v as _$FormInitial));
 
   @override
-  _$FormState get _value => super._value as _$FormState;
+  _$FormInitial get _value => super._value as _$FormInitial;
 
   @override
   $Res call({
     Object? masterFormEntity = freezed,
   }) {
-    return _then(_$FormState(
+    return _then(_$FormInitial(
       masterFormEntity: masterFormEntity == freezed
           ? _value.masterFormEntity
           : masterFormEntity // ignore: cast_nullable_to_non_nullable
@@ -1056,22 +1106,22 @@ class __$$FormStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FormState implements FormState {
-  const _$FormState({required this.masterFormEntity});
+class _$FormInitial implements FormInitial {
+  const _$FormInitial({required this.masterFormEntity});
 
   @override
   final MasterFormEntity masterFormEntity;
 
   @override
   String toString() {
-    return 'MasterFormState(masterFormEntity: $masterFormEntity)';
+    return 'MasterFormState.initial(masterFormEntity: $masterFormEntity)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FormState &&
+            other is _$FormInitial &&
             const DeepCollectionEquality()
                 .equals(other.masterFormEntity, masterFormEntity));
   }
@@ -1082,18 +1132,548 @@ class _$FormState implements FormState {
 
   @JsonKey(ignore: true)
   @override
-  _$$FormStateCopyWith<_$FormState> get copyWith =>
-      __$$FormStateCopyWithImpl<_$FormState>(this, _$identity);
+  _$$FormInitialCopyWith<_$FormInitial> get copyWith =>
+      __$$FormInitialCopyWithImpl<_$FormInitial>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(MasterFormEntity masterFormEntity) initial,
+    required TResult Function(MasterFormEntity masterFormEntity) loading,
+    required TResult Function(MasterFormEntity masterFormEntity) success,
+    required TResult Function(MasterFormEntity masterFormEntity) error,
+  }) {
+    return initial(masterFormEntity);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(MasterFormEntity masterFormEntity)? initial,
+    TResult Function(MasterFormEntity masterFormEntity)? loading,
+    TResult Function(MasterFormEntity masterFormEntity)? success,
+    TResult Function(MasterFormEntity masterFormEntity)? error,
+  }) {
+    return initial?.call(masterFormEntity);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(MasterFormEntity masterFormEntity)? initial,
+    TResult Function(MasterFormEntity masterFormEntity)? loading,
+    TResult Function(MasterFormEntity masterFormEntity)? success,
+    TResult Function(MasterFormEntity masterFormEntity)? error,
+    required TResult orElse(),
+  }) {
+    if (initial != null) {
+      return initial(masterFormEntity);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FormInitial value) initial,
+    required TResult Function(FormLoading value) loading,
+    required TResult Function(FormSuccess value) success,
+    required TResult Function(FormError value) error,
+  }) {
+    return initial(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(FormInitial value)? initial,
+    TResult Function(FormLoading value)? loading,
+    TResult Function(FormSuccess value)? success,
+    TResult Function(FormError value)? error,
+  }) {
+    return initial?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FormInitial value)? initial,
+    TResult Function(FormLoading value)? loading,
+    TResult Function(FormSuccess value)? success,
+    TResult Function(FormError value)? error,
+    required TResult orElse(),
+  }) {
+    if (initial != null) {
+      return initial(this);
+    }
+    return orElse();
+  }
 }
 
-abstract class FormState implements MasterFormState {
-  const factory FormState({required final MasterFormEntity masterFormEntity}) =
-      _$FormState;
+abstract class FormInitial implements MasterFormState {
+  const factory FormInitial(
+      {required final MasterFormEntity masterFormEntity}) = _$FormInitial;
 
   @override
   MasterFormEntity get masterFormEntity;
   @override
   @JsonKey(ignore: true)
-  _$$FormStateCopyWith<_$FormState> get copyWith =>
+  _$$FormInitialCopyWith<_$FormInitial> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$FormLoadingCopyWith<$Res>
+    implements $MasterFormStateCopyWith<$Res> {
+  factory _$$FormLoadingCopyWith(
+          _$FormLoading value, $Res Function(_$FormLoading) then) =
+      __$$FormLoadingCopyWithImpl<$Res>;
+  @override
+  $Res call({MasterFormEntity masterFormEntity});
+}
+
+/// @nodoc
+class __$$FormLoadingCopyWithImpl<$Res>
+    extends _$MasterFormStateCopyWithImpl<$Res>
+    implements _$$FormLoadingCopyWith<$Res> {
+  __$$FormLoadingCopyWithImpl(
+      _$FormLoading _value, $Res Function(_$FormLoading) _then)
+      : super(_value, (v) => _then(v as _$FormLoading));
+
+  @override
+  _$FormLoading get _value => super._value as _$FormLoading;
+
+  @override
+  $Res call({
+    Object? masterFormEntity = freezed,
+  }) {
+    return _then(_$FormLoading(
+      masterFormEntity: masterFormEntity == freezed
+          ? _value.masterFormEntity
+          : masterFormEntity // ignore: cast_nullable_to_non_nullable
+              as MasterFormEntity,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$FormLoading implements FormLoading {
+  const _$FormLoading({required this.masterFormEntity});
+
+  @override
+  final MasterFormEntity masterFormEntity;
+
+  @override
+  String toString() {
+    return 'MasterFormState.loading(masterFormEntity: $masterFormEntity)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FormLoading &&
+            const DeepCollectionEquality()
+                .equals(other.masterFormEntity, masterFormEntity));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(masterFormEntity));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$FormLoadingCopyWith<_$FormLoading> get copyWith =>
+      __$$FormLoadingCopyWithImpl<_$FormLoading>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(MasterFormEntity masterFormEntity) initial,
+    required TResult Function(MasterFormEntity masterFormEntity) loading,
+    required TResult Function(MasterFormEntity masterFormEntity) success,
+    required TResult Function(MasterFormEntity masterFormEntity) error,
+  }) {
+    return loading(masterFormEntity);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(MasterFormEntity masterFormEntity)? initial,
+    TResult Function(MasterFormEntity masterFormEntity)? loading,
+    TResult Function(MasterFormEntity masterFormEntity)? success,
+    TResult Function(MasterFormEntity masterFormEntity)? error,
+  }) {
+    return loading?.call(masterFormEntity);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(MasterFormEntity masterFormEntity)? initial,
+    TResult Function(MasterFormEntity masterFormEntity)? loading,
+    TResult Function(MasterFormEntity masterFormEntity)? success,
+    TResult Function(MasterFormEntity masterFormEntity)? error,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(masterFormEntity);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FormInitial value) initial,
+    required TResult Function(FormLoading value) loading,
+    required TResult Function(FormSuccess value) success,
+    required TResult Function(FormError value) error,
+  }) {
+    return loading(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(FormInitial value)? initial,
+    TResult Function(FormLoading value)? loading,
+    TResult Function(FormSuccess value)? success,
+    TResult Function(FormError value)? error,
+  }) {
+    return loading?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FormInitial value)? initial,
+    TResult Function(FormLoading value)? loading,
+    TResult Function(FormSuccess value)? success,
+    TResult Function(FormError value)? error,
+    required TResult orElse(),
+  }) {
+    if (loading != null) {
+      return loading(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FormLoading implements MasterFormState {
+  const factory FormLoading(
+      {required final MasterFormEntity masterFormEntity}) = _$FormLoading;
+
+  @override
+  MasterFormEntity get masterFormEntity;
+  @override
+  @JsonKey(ignore: true)
+  _$$FormLoadingCopyWith<_$FormLoading> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$FormSuccessCopyWith<$Res>
+    implements $MasterFormStateCopyWith<$Res> {
+  factory _$$FormSuccessCopyWith(
+          _$FormSuccess value, $Res Function(_$FormSuccess) then) =
+      __$$FormSuccessCopyWithImpl<$Res>;
+  @override
+  $Res call({MasterFormEntity masterFormEntity});
+}
+
+/// @nodoc
+class __$$FormSuccessCopyWithImpl<$Res>
+    extends _$MasterFormStateCopyWithImpl<$Res>
+    implements _$$FormSuccessCopyWith<$Res> {
+  __$$FormSuccessCopyWithImpl(
+      _$FormSuccess _value, $Res Function(_$FormSuccess) _then)
+      : super(_value, (v) => _then(v as _$FormSuccess));
+
+  @override
+  _$FormSuccess get _value => super._value as _$FormSuccess;
+
+  @override
+  $Res call({
+    Object? masterFormEntity = freezed,
+  }) {
+    return _then(_$FormSuccess(
+      masterFormEntity: masterFormEntity == freezed
+          ? _value.masterFormEntity
+          : masterFormEntity // ignore: cast_nullable_to_non_nullable
+              as MasterFormEntity,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$FormSuccess implements FormSuccess {
+  const _$FormSuccess({required this.masterFormEntity});
+
+  @override
+  final MasterFormEntity masterFormEntity;
+
+  @override
+  String toString() {
+    return 'MasterFormState.success(masterFormEntity: $masterFormEntity)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FormSuccess &&
+            const DeepCollectionEquality()
+                .equals(other.masterFormEntity, masterFormEntity));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(masterFormEntity));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$FormSuccessCopyWith<_$FormSuccess> get copyWith =>
+      __$$FormSuccessCopyWithImpl<_$FormSuccess>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(MasterFormEntity masterFormEntity) initial,
+    required TResult Function(MasterFormEntity masterFormEntity) loading,
+    required TResult Function(MasterFormEntity masterFormEntity) success,
+    required TResult Function(MasterFormEntity masterFormEntity) error,
+  }) {
+    return success(masterFormEntity);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(MasterFormEntity masterFormEntity)? initial,
+    TResult Function(MasterFormEntity masterFormEntity)? loading,
+    TResult Function(MasterFormEntity masterFormEntity)? success,
+    TResult Function(MasterFormEntity masterFormEntity)? error,
+  }) {
+    return success?.call(masterFormEntity);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(MasterFormEntity masterFormEntity)? initial,
+    TResult Function(MasterFormEntity masterFormEntity)? loading,
+    TResult Function(MasterFormEntity masterFormEntity)? success,
+    TResult Function(MasterFormEntity masterFormEntity)? error,
+    required TResult orElse(),
+  }) {
+    if (success != null) {
+      return success(masterFormEntity);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FormInitial value) initial,
+    required TResult Function(FormLoading value) loading,
+    required TResult Function(FormSuccess value) success,
+    required TResult Function(FormError value) error,
+  }) {
+    return success(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(FormInitial value)? initial,
+    TResult Function(FormLoading value)? loading,
+    TResult Function(FormSuccess value)? success,
+    TResult Function(FormError value)? error,
+  }) {
+    return success?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FormInitial value)? initial,
+    TResult Function(FormLoading value)? loading,
+    TResult Function(FormSuccess value)? success,
+    TResult Function(FormError value)? error,
+    required TResult orElse(),
+  }) {
+    if (success != null) {
+      return success(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FormSuccess implements MasterFormState {
+  const factory FormSuccess(
+      {required final MasterFormEntity masterFormEntity}) = _$FormSuccess;
+
+  @override
+  MasterFormEntity get masterFormEntity;
+  @override
+  @JsonKey(ignore: true)
+  _$$FormSuccessCopyWith<_$FormSuccess> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$FormErrorCopyWith<$Res>
+    implements $MasterFormStateCopyWith<$Res> {
+  factory _$$FormErrorCopyWith(
+          _$FormError value, $Res Function(_$FormError) then) =
+      __$$FormErrorCopyWithImpl<$Res>;
+  @override
+  $Res call({MasterFormEntity masterFormEntity});
+}
+
+/// @nodoc
+class __$$FormErrorCopyWithImpl<$Res>
+    extends _$MasterFormStateCopyWithImpl<$Res>
+    implements _$$FormErrorCopyWith<$Res> {
+  __$$FormErrorCopyWithImpl(
+      _$FormError _value, $Res Function(_$FormError) _then)
+      : super(_value, (v) => _then(v as _$FormError));
+
+  @override
+  _$FormError get _value => super._value as _$FormError;
+
+  @override
+  $Res call({
+    Object? masterFormEntity = freezed,
+  }) {
+    return _then(_$FormError(
+      masterFormEntity: masterFormEntity == freezed
+          ? _value.masterFormEntity
+          : masterFormEntity // ignore: cast_nullable_to_non_nullable
+              as MasterFormEntity,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$FormError implements FormError {
+  const _$FormError({required this.masterFormEntity});
+
+  @override
+  final MasterFormEntity masterFormEntity;
+
+  @override
+  String toString() {
+    return 'MasterFormState.error(masterFormEntity: $masterFormEntity)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FormError &&
+            const DeepCollectionEquality()
+                .equals(other.masterFormEntity, masterFormEntity));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(masterFormEntity));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$FormErrorCopyWith<_$FormError> get copyWith =>
+      __$$FormErrorCopyWithImpl<_$FormError>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(MasterFormEntity masterFormEntity) initial,
+    required TResult Function(MasterFormEntity masterFormEntity) loading,
+    required TResult Function(MasterFormEntity masterFormEntity) success,
+    required TResult Function(MasterFormEntity masterFormEntity) error,
+  }) {
+    return error(masterFormEntity);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(MasterFormEntity masterFormEntity)? initial,
+    TResult Function(MasterFormEntity masterFormEntity)? loading,
+    TResult Function(MasterFormEntity masterFormEntity)? success,
+    TResult Function(MasterFormEntity masterFormEntity)? error,
+  }) {
+    return error?.call(masterFormEntity);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(MasterFormEntity masterFormEntity)? initial,
+    TResult Function(MasterFormEntity masterFormEntity)? loading,
+    TResult Function(MasterFormEntity masterFormEntity)? success,
+    TResult Function(MasterFormEntity masterFormEntity)? error,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(masterFormEntity);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(FormInitial value) initial,
+    required TResult Function(FormLoading value) loading,
+    required TResult Function(FormSuccess value) success,
+    required TResult Function(FormError value) error,
+  }) {
+    return error(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(FormInitial value)? initial,
+    TResult Function(FormLoading value)? loading,
+    TResult Function(FormSuccess value)? success,
+    TResult Function(FormError value)? error,
+  }) {
+    return error?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(FormInitial value)? initial,
+    TResult Function(FormLoading value)? loading,
+    TResult Function(FormSuccess value)? success,
+    TResult Function(FormError value)? error,
+    required TResult orElse(),
+  }) {
+    if (error != null) {
+      return error(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FormError implements MasterFormState {
+  const factory FormError({required final MasterFormEntity masterFormEntity}) =
+      _$FormError;
+
+  @override
+  MasterFormEntity get masterFormEntity;
+  @override
+  @JsonKey(ignore: true)
+  _$$FormErrorCopyWith<_$FormError> get copyWith =>
       throw _privateConstructorUsedError;
 }

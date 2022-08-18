@@ -8,9 +8,13 @@ class CartoonDisplayer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SvgPicture.asset(
-      assetName,
-      height: 256,
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        return SvgPicture.asset(
+          assetName,
+          height: constraints.maxWidth > 375 ? 256 : 210,
+        );
+      },
     );
   }
 }

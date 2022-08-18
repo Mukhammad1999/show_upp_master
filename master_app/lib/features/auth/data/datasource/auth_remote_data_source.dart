@@ -10,11 +10,16 @@ class AuthRemoteDataSourceImpl extends AuthRemoteDataSource {
 
   @override
   Future<bool> signUp() async {
-    throw UnimplementedError();
     Response response = await _client.post(
       '/api/v1/auth/register',
     );
-    if (response.statusCode == 200) {}
+    if (response.statusCode == 200) {
+      if (response.data['statusCode'] == 200) {
+        return true;
+      } else {
+        return false;
+      }
+    }
     return false;
   }
 }
