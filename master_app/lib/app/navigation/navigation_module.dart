@@ -9,8 +9,8 @@ import 'package:master_app/features/auth/data/datasource/auth_remote_data_source
 import 'package:master_app/features/auth/data/repository/auth_repository_impl.dart';
 import 'package:master_app/features/auth/domain/repository/auth_repository.dart';
 import 'package:master_app/features/auth/presentation/controller/bloc/master_form_bloc.dart';
-import 'package:master_app/features/auth/presentation/controller/signup_bloc/bloc/sign_up_master_bloc.dart';
-import 'package:master_app/features/auth/presentation/pages/master_app_form.dart';
+import 'package:master_app/features/auth/presentation/pages/master_signup_form.dart';
+import 'package:master_app/features/auth/presentation/pages/otp_page.dart';
 
 class NavigationModule extends Module {
   @override
@@ -30,6 +30,9 @@ class NavigationModule extends Module {
           (i) => Dio(
             BaseOptions(
               baseUrl: Constants.baseUrl,
+              extra: {
+                'withCredentials': true,
+              },
             ),
           )..interceptors.add(
               ShowUppInterceptor(),
@@ -55,14 +58,15 @@ class NavigationModule extends Module {
                   authRepository: Modular.get<AuthRepository>(),
                 ),
               ),
-              BlocProvider(
-                create: (context) => SignUpMasterBloc(
-                  repository: Modular.get<AuthRepository>(),
-                ),
-              )
             ],
             child: const MasterFormRegistration(),
           ),
+        ),
+
+        //directs user to OTP Page
+        ChildRoute<OtpPage>(
+          RouteName.otpPage,
+          child: (context, args) => const OtpPage(),
         ),
       ];
 }

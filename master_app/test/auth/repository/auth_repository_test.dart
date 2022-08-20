@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:master_app/features/auth/data/datasource/auth_remote_data_source.dart';
+import 'package:master_app/features/auth/domain/entities/signup_form_entities.dart';
 import 'package:mocktail/mocktail.dart';
 
 class DioMock extends Mock implements Dio {}
@@ -25,7 +26,7 @@ void main() {
         data: jsonMock,
       ),
     );
-    final result = await remoteDataSource.signUp();
+    final result = await remoteDataSource.signUp(const MasterFormEntity());
     expect(result, true);
   });
 }

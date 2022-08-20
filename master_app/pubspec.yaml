@@ -22,6 +22,10 @@ dependencies:
   equatable: ^2.0.3
   mask_input_formatter: ^0.0.3
   dio: ^4.0.6
+  flutter_spinkit: ^5.1.0
+  get_ip_address: ^0.0.5
+  dart_ipify: ^1.1.1
+  pin_code_fields: ^7.4.0
   
   
   

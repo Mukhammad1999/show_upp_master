@@ -10,11 +10,13 @@ class ShowUppInterceptor extends Interceptor {
 
   @override
   void onError(DioError err, ErrorInterceptorHandler handler) {
+    log(err.response!.data.toString());
     super.onError(err, handler);
   }
 
   @override
   void onResponse(Response response, ResponseInterceptorHandler handler) {
+    log(response.data.toString());
     super.onResponse(response, handler);
   }
 }

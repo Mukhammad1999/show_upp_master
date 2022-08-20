@@ -9,6 +9,7 @@ abstract class AppTheme {
         backgroundColor: AppColorsLight.backGroundColor,
         disabledColor: AppColorsLight.disabledColor,
         hintColor: AppColorsLight.hintColor,
+        hoverColor: AppColorsLight.lightGreyColor,
         indicatorColor: AppColorsLight.indicatorColor,
         highlightColor: AppColorsLight.descriptionColor,
         appBarTheme: const AppBarTheme(

@@ -1,7 +1,10 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_modular/flutter_modular.dart'
+    hide ModularWatchExtension;
 import 'package:master_app/app/index/index.dart';
+import 'package:master_app/app/navigation/route_names.dart';
 import 'package:master_app/app/ui/style/app_typography.dart';
 import 'package:master_app/app/ui/widgets/buttons/buttons.dart';
 import 'package:master_app/features/auth/domain/entities/signup_form_entities.dart';
@@ -22,7 +25,13 @@ class MasterFormRegistration extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.symmetric(horizontal: 40),
-        child: BlocBuilder<MasterFormBloc, MasterFormState>(
+        child: BlocConsumer<MasterFormBloc, MasterFormState>(
+          listener: (context, state) {
+            state.maybeWhen(
+              orElse: () => null,
+              success: (entity) => Modular.to.pushNamed(RouteName.otpPage),
+            );
+          },
           builder: (context, state) {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -138,15 +147,20 @@ class MasterFormRegistration extends StatelessWidget {
                 const SizedBox(
                   height: 34.55,
                 ),
-
                 AppTextButton(
+                  isLoading: state.maybeWhen(
+                    orElse: () => false,
+                    loading: (entity) => true,
+                  ),
                   title: 'confirm'.tr(),
                   onPressed:
                       (state.masterFormEntity.phoneNumber!.trim().length ==
                                   12) &&
                               (state.masterFormEntity.surname!.length >= 2) &&
                               (state.masterFormEntity.name!.length >= 2)
-                          ? () {}
+                          ? () {
+                              masterBloc.add(const MasterFormEvent.submit());
+                            }
                           : null,
                 ),
                 const SizedBox(

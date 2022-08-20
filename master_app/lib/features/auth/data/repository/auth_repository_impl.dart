@@ -9,6 +9,6 @@ class AuthRepositoryImpl extends AuthRepository {
   final AuthRemoteDataSource _authRemoteDataSource;
   @override
   Future<bool> signUp(MasterFormEntity masterFormEntity) {
-    throw UnimplementedError();
+    return _authRemoteDataSource.signUp(masterFormEntity);
   }
 }
