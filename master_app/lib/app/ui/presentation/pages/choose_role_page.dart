@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:master_app/app/index/index.dart';
 import 'package:master_app/app/navigation/route_names.dart';
+import 'package:master_app/app/ui/images/images.dart';
+import 'package:master_app/app/ui/widgets/buttons/buttons.dart';
 import 'package:master_app/app/ui/widgets/cartoon_displayer.dart';
-import '../../widgets/buttons/buttons.dart';
+import 'package:master_app/localization/translation_strings.dart';
 
 class ChooseRolePage extends StatelessWidget {
   const ChooseRolePage({super.key});
@@ -23,27 +25,27 @@ class ChooseRolePage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               SemiBoldTitle(
-                title: 'choose_role_question'.tr(),
+                title: TranslationStrings.role.chooseRoleQuestion.tr(),
               ),
               const SizedBox(
                 height: 59,
               ),
               const CartoonDisplayer(
-                assetName: 'assets/svg/question_choose_role.svg',
+                assetName: SvgImages.questionChooseRole,
               ),
             ],
           ),
           Column(
             children: [
               AppTextButton(
-                title: 'master'.tr(),
+                title: TranslationStrings.role.master.tr(),
                 onPressed: () => Modular.to.pushNamed(RouteName.masterFormPage),
               ),
               const SizedBox(
                 height: 25,
               ),
               AppTextButton(
-                title: 'saloon'.tr(),
+                title: TranslationStrings.role.saloon.tr(),
                 onPressed: () {},
               ),
             ],
