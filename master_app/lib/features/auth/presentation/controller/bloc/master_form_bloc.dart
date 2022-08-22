@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -13,7 +14,7 @@ class MasterFormBloc extends Bloc<MasterFormEvent, MasterFormState> {
   MasterFormBloc({required AuthRepository authRepository})
       : _authRepository = authRepository,
         super(
-          const MasterFormState(
+          const FormInitial(
             masterFormEntity: MasterFormEntity(
               name: '',
               surname: '',
@@ -44,7 +45,18 @@ class MasterFormBloc extends Bloc<MasterFormEvent, MasterFormState> {
     );
   }
 
-  FutureOr<void> _submitForm(SubmitForm event, Emitter<MasterFormState> emit) {
-    //do smth
+  FutureOr<void> _submitForm(
+      SubmitForm event, Emitter<MasterFormState> emit) async {
+    emit(FormLoading(masterFormEntity: state.masterFormEntity));
+    try {
+      final result = await _authRepository.signUp(state.masterFormEntity);
+      // final result = true;
+      if (result) {
+        emit(FormSuccess(masterFormEntity: state.masterFormEntity));
+      }
+    } catch (e) {
+      log(e.toString());
+      emit(FormError(masterFormEntity: state.masterFormEntity));
+    }
   }
 }

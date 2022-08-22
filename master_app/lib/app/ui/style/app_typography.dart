@@ -38,9 +38,17 @@ abstract class AppTypography {
     letterSpacing: 1.65,
     fontWeight: FontWeight.w500,
   );
+
+  //This is style for hints
   static const TextStyle hintStyle = TextStyle(
     fontFamily: 'Montserrat',
     fontSize: 14,
     fontWeight: FontWeight.w500,
+  );
+
+  static const TextStyle numberDigits = TextStyle(
+    fontFamily: 'Montserrat',
+    fontSize: 34,
+    fontWeight: FontWeight.w700,
   );
 }

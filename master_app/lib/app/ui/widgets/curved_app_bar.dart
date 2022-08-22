@@ -20,7 +20,7 @@ class CurvedAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       elevation: 0,
       shape: _getCurvatureByEnum(curvature),
-      backgroundColor: backgroundColor,
+      backgroundColor: backgroundColor ?? Theme.of(context).primaryColor,
       title: title != null
           ? Text(
               title!,
