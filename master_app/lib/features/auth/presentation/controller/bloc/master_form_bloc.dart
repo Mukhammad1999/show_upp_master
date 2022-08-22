@@ -50,8 +50,8 @@ class MasterFormBloc extends Bloc<MasterFormEvent, MasterFormState> {
     emit(FormLoading(masterFormEntity: state.masterFormEntity));
     try {
       final result = await _authRepository.signUp(state.masterFormEntity);
-      // final result = true;
-      if (result) {
+
+      if (result.isSuccessful) {
         emit(FormSuccess(masterFormEntity: state.masterFormEntity));
       }
     } catch (e) {

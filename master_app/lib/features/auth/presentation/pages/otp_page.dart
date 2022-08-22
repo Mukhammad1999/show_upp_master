@@ -1,6 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:master_app/app/index/index.dart';
 import 'package:master_app/app/ui/style/app_typography.dart';
+import 'package:master_app/localization/translation_strings.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 class OtpPage extends StatelessWidget {
@@ -9,13 +11,14 @@ class OtpPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CurvedAppBar(
+      appBar: CurvedAppBar(
         curvature: Curvature.leftToRight,
+        title: TranslationStrings.auth.numberVerification.tr(),
       ),
       body: Column(
         children: [
-          const Text(
-            'otp_number',
+          Text(
+            TranslationStrings.auth.numberVerificationDescription.tr(),
             textAlign: TextAlign.center,
           ),
           const SizedBox(

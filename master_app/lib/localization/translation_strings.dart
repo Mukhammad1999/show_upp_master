@@ -19,4 +19,6 @@ class _Auth {
   final String nonBinary = 'auth.non-binary';
   final String fillInMasterForm = 'auth.fill_in_master_form_description';
   final String confirm = 'auth.confirm';
+  final String numberVerification = 'auth.number_verification';
+  final String numberVerificationDescription = 'auth.number_description';
 }

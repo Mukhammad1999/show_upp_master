@@ -10,6 +10,8 @@
     "auth.female": "Female",
     "auth.non-binary": "Non-binary",
     "auth.fill_in_master_form_description": "Fill in the form to proceed next (all fields are required)",
-    "auth.confirm": "CONFIRM"
+    "auth.confirm": "CONFIRM",
+    "auth.number_verification" : "NUMBER VERIFICATION",
+    "auth.number_description": "Enter 6-digit number, sent by SMS to {number} phone number"
    
 }

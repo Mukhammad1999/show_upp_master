@@ -10,6 +10,7 @@ import 'package:master_app/app/ui/widgets/buttons/buttons.dart';
 import 'package:master_app/features/auth/domain/entities/signup_form_entities.dart';
 import 'package:master_app/features/auth/presentation/controller/bloc/master_form_bloc.dart';
 import 'package:master_app/features/auth/presentation/widgets/index.dart';
+import 'package:master_app/localization/translation_strings.dart';
 
 class MasterFormRegistration extends StatelessWidget {
   const MasterFormRegistration({super.key});
@@ -20,7 +21,7 @@ class MasterFormRegistration extends StatelessWidget {
     return Scaffold(
       appBar: CurvedAppBar(
         curvature: Curvature.rightToLeft,
-        title: 'master'.tr(),
+        title: TranslationStrings.role.master.tr(),
         backgroundColor: Theme.of(context).primaryColor,
       ),
       body: SingleChildScrollView(
@@ -37,7 +38,7 @@ class MasterFormRegistration extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 SemiBoldTitle(
-                  title: 'your_data'.tr(),
+                  title: TranslationStrings.auth.yourData.tr(),
                 ),
                 const SizedBox(
                   height: 22,
@@ -45,7 +46,7 @@ class MasterFormRegistration extends StatelessWidget {
                 //field for collecting name from the user
                 StringTextFormField(
                   isFullFilled: state.masterFormEntity.name!.length >= 2,
-                  hint: 'name'.tr(),
+                  hint: TranslationStrings.auth.name.tr(),
                   onChanged: (name) {
                     masterBloc.add(
                       MasterFormEvent.update(
@@ -66,7 +67,7 @@ class MasterFormRegistration extends StatelessWidget {
                 ),
                 StringTextFormField(
                   isFullFilled: state.masterFormEntity.surname!.length >= 2,
-                  hint: 'surname'.tr(),
+                  hint: TranslationStrings.auth.surname.tr(),
                   onChanged: (surname) {
                     masterBloc.add(
                       MasterFormEvent.update(
@@ -136,7 +137,7 @@ class MasterFormRegistration extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'fill_in_master_form_description'.tr(),
+                  TranslationStrings.auth.fillInMasterForm.tr(),
                   textAlign: TextAlign.center,
                   maxLines: 2,
                   style: AppTypography.smallDescription.copyWith(
@@ -152,7 +153,7 @@ class MasterFormRegistration extends StatelessWidget {
                     orElse: () => false,
                     loading: (entity) => true,
                   ),
-                  title: 'confirm'.tr(),
+                  title: TranslationStrings.auth.confirm.tr(),
                   onPressed:
                       (state.masterFormEntity.phoneNumber!.trim().length ==
                                   12) &&

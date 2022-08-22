@@ -10,6 +10,8 @@
     "auth.female": "Ayol",
     "auth.non-binary": "Boshqa",
     "auth.fill_in_master_form_description": "Keyingi harakatlar uchun ma'lumotlarni to'ldiring (barcha fikrlar talab qilinadi)",
-    "auth.confirm": "TASDIQLASH"
+    "auth.confirm": "TASDIQLASH",
+    "auth.number_verification" : "NUMBER VERIFICATION",
+    "auth.number_description": "Enter 6-digit number, sent by SMS to {number} phone number"
     
 }

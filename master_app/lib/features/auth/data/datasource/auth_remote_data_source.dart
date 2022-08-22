@@ -1,8 +1,9 @@
 import 'package:dio/dio.dart';
+import 'package:master_app/features/auth/data/models/sign_up_result_model.dart';
 import 'package:master_app/features/auth/domain/entities/signup_form_entities.dart';
 
 abstract class AuthRemoteDataSource {
-  Future<bool> signUp(MasterFormEntity masterFormEntity);
+  Future<SignUpResultModel> signUp(MasterFormEntity masterFormEntity);
 }
 
 class AuthRemoteDataSourceImpl extends AuthRemoteDataSource {
@@ -10,14 +11,11 @@ class AuthRemoteDataSourceImpl extends AuthRemoteDataSource {
   final Dio _client;
 
   @override
-  Future<bool> signUp(MasterFormEntity masterFormEntity) async {
+  Future<SignUpResultModel> signUp(MasterFormEntity masterFormEntity) async {
     final response = await _client.post(
-      '/api/v1/auth/register',
+      'auth/register',
       data: masterFormEntity.toJson(),
     );
-    if (response.statusCode == 201) {
-      return true;
-    }
-    return false;
+    return SignUpResultModel.fromJson(response.data['body'] as String);
   }
 }
