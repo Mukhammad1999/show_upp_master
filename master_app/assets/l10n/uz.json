@@ -11,7 +11,10 @@
     "auth.non-binary": "Boshqa",
     "auth.fill_in_master_form_description": "Keyingi harakatlar uchun ma'lumotlarni to'ldiring (barcha fikrlar talab qilinadi)",
     "auth.confirm": "TASDIQLASH",
-    "auth.number_verification" : "NUMBER VERIFICATION",
-    "auth.number_description": "Enter 6-digit number, sent by SMS to {number} phone number"
+    "auth.number_verification" : "RAQAMNI TASDIQLASH",
+    "auth.number_description": "{number} telefon raqamiga ga jo'natilgan 6-tali raqamni kiriting",
+    "auth.log_in": "KIRISH",
+    "auth.sign_up": "AKKAUNT YARATISH",
+    "auth.or" : "YOKI"
     
 }

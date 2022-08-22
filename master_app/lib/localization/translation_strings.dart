@@ -21,4 +21,7 @@ class _Auth {
   final String confirm = 'auth.confirm';
   final String numberVerification = 'auth.number_verification';
   final String numberVerificationDescription = 'auth.number_description';
+  final String logIn = 'auth.log_in';
+  final String signUp = 'auth.sign_up';
+  final String or = 'auth.or';
 }

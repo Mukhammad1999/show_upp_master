@@ -6,7 +6,7 @@ import 'package:flutter_modular/flutter_modular.dart'
 import 'package:master_app/app/index/index.dart';
 import 'package:master_app/app/navigation/route_names.dart';
 import 'package:master_app/app/ui/style/app_typography.dart';
-import 'package:master_app/app/ui/widgets/buttons/buttons.dart';
+import 'package:master_app/app/ui/widgets/buttons/app_text_button.dart';
 import 'package:master_app/features/auth/domain/entities/signup_form_entities.dart';
 import 'package:master_app/features/auth/presentation/controller/bloc/master_form_bloc.dart';
 import 'package:master_app/features/auth/presentation/widgets/index.dart';

@@ -12,5 +12,8 @@
     "auth.fill_in_master_form_description": "Заполните данные для последующих действий (все пункты обязательны)",
     "auth.confirm": "ПОДТВЕРДИТЬ",
     "auth.number_verification" : "ПОДТВЕРЖДЕНИЕ НОМЕРА",
-    "auth.number_description": "Введите 6-значный код, отправленный на номер {number} по SMS"
+    "auth.number_description": "Введите 6-значный код, отправленный на номер {number} по SMS",
+    "auth.log_in": "ВОЙТИ",
+    "auth.sign_up": "СОЗДАЙТЕ АККАУНТ",
+    "auth.or" : "ИЛИ"
 }

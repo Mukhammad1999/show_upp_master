@@ -9,10 +9,12 @@ import 'package:master_app/features/auth/data/datasource/auth_remote_data_source
 import 'package:master_app/features/auth/data/repository/auth_repository_impl.dart';
 import 'package:master_app/features/auth/domain/repository/auth_repository.dart';
 import 'package:master_app/features/auth/presentation/controller/bloc/master_form_bloc.dart';
+import 'package:master_app/features/auth/presentation/pages/login_page.dart';
+
 import 'package:master_app/features/auth/presentation/pages/master_signup_form.dart';
 import 'package:master_app/features/auth/presentation/pages/otp_page.dart';
 
-class NavigationModule extends Module {
+class AuthModule extends Module {
   @override
   List<Bind> get binds => [
         //Remote Repository for Auth Repository
@@ -67,6 +69,11 @@ class NavigationModule extends Module {
         ChildRoute<OtpPage>(
           RouteName.otpPage,
           child: (context, args) => const OtpPage(),
+        ),
+
+        ChildRoute<LoginPage>(
+          RouteName.loginPage,
+          child: (context, args) => const LoginPage(),
         ),
       ];
 }
