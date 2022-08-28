@@ -12,6 +12,7 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         body: Padding(
           padding: const EdgeInsets.symmetric(
             horizontal: 40,
@@ -24,26 +25,28 @@ class LoginPage extends StatelessWidget {
                 child: ShowUppLogo(),
               ),
               Expanded(
-                  child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  const PhoneFormTextField(
-                    isFullFilled: true,
-                  ),
-                  RoundedTextButton(
-                    title: TranslationStrings.auth.logIn.tr(),
-                    buttonColor: Theme.of(context).primaryColor,
-                  ),
-                  TextEmphisizer(
-                    text: TranslationStrings.auth.or.tr(),
-                  ),
-                  RoundedTextButton(
-                    title: TranslationStrings.auth.signUp.tr(),
-                    buttonColor: Theme.of(context).primaryColor,
-                  ),
-                ],
-              )),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    const PhoneFormTextField(
+                      isFullFilled: true,
+                    ),
+                    RoundedTextButton(
+                      title: TranslationStrings.auth.logIn.tr(),
+                      buttonColor: Theme.of(context).primaryColor,
+                    ),
+                    TextEmphisizer(
+                      text: TranslationStrings.auth.or.tr(),
+                    ),
+                    RoundedTextButton(
+                      title: TranslationStrings.auth.signUp.tr(),
+                      onPressed: () {},
+                      buttonColor: Theme.of(context).primaryColor,
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),

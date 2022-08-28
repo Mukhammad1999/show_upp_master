@@ -8,11 +8,13 @@ class RoundedTextButton extends StatelessWidget {
     required this.title,
     this.buttonColor,
     this.textColor,
+    this.borderRadiusColor,
   });
   final VoidCallback? onPressed;
   final String title;
   final Color? buttonColor;
   final Color? textColor;
+  final Color? borderRadiusColor;
 
   @override
   Widget build(BuildContext context) {
