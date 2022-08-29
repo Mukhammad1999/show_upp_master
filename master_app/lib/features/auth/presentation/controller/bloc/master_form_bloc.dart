@@ -1,11 +1,13 @@
 import 'dart:async';
 import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:master_app/app/enums/gender.dart';
 import 'package:master_app/app/params/auth/master_signup_params.dart';
 import 'package:master_app/features/auth/domain/entities/signup_form_entities.dart';
 import 'package:master_app/features/auth/domain/repository/auth_repository.dart';
+
 part 'master_form_bloc.freezed.dart';
 part 'master_form_event.dart';
 part 'master_form_state.dart';
@@ -39,7 +41,8 @@ class MasterFormBloc extends Bloc<MasterFormEvent, MasterFormState> {
               state.masterFormEntity.copyWith(surname: surname),
           phoneNumber: (phoneNumber) =>
               state.masterFormEntity.copyWith(phoneNumber: phoneNumber),
-          gender: (gender) => state.masterFormEntity.copyWith(gender: gender),
+          gender: (gender) =>
+              state.masterFormEntity.copyWith(gender: gender as Gender),
         ),
       ),
     );

@@ -73,6 +73,16 @@ class SaloonFormEntity extends SignUpFormEntity {
   // will be clear when configured on back-end
   const SaloonFormEntity({required super.name, required super.phoneNumber});
 
+  SaloonFormEntity copyWith({
+    String? name,
+    String? phoneNumber,
+  }) {
+    return SaloonFormEntity(
+      name: name ?? this.name,
+      phoneNumber: phoneNumber ?? this.phoneNumber,
+    );
+  }
+
   @override
-  List<Object?> get props => throw UnimplementedError();
+  List<Object?> get props => [name, phoneNumber];
 }

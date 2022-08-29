@@ -20,6 +20,8 @@ class _Auth {
   final String male = 'auth.male';
   final String female = 'auth.female';
   final String nonBinary = 'auth.non-binary';
+  final String location = 'auth.location';
+  final String saloonInfo = 'auth.saloon_info';
   final String fillInMasterForm = 'auth.fill_in_master_form_description';
   final String confirm = 'auth.confirm';
   final String numberVerification = 'auth.number_verification';

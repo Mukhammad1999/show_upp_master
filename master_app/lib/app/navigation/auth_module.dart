@@ -10,11 +10,13 @@ import 'package:master_app/features/auth/data/datasource/auth_remote_data_source
 import 'package:master_app/features/auth/data/repository/auth_repository_impl.dart';
 import 'package:master_app/features/auth/domain/repository/auth_repository.dart';
 import 'package:master_app/features/auth/presentation/controller/bloc/master_form_bloc.dart';
+import 'package:master_app/features/auth/presentation/controller/saloon_bloc/saloon_form_bloc.dart';
 import 'package:master_app/features/auth/presentation/pages/login_page.dart';
 import 'package:master_app/features/auth/presentation/pages/master_pages/choose_saloon_page.dart';
 import 'package:master_app/features/auth/presentation/pages/master_pages/master_signup_form.dart';
 import 'package:master_app/features/auth/presentation/pages/master_pages/worker_or_freelancer.dart';
 import 'package:master_app/features/auth/presentation/pages/otp_page.dart';
+import 'package:master_app/features/auth/presentation/pages/saloon_form.dart';
 
 class AuthModule extends Module {
   @override
@@ -65,6 +67,7 @@ class AuthModule extends Module {
               ],
             ),
         ),
+        Bind((i) => SaloonBloc()),
       ];
 
   @override
@@ -109,6 +112,12 @@ class AuthModule extends Module {
         ChildRoute<LoginPage>(
           RouteName.loginPage,
           child: (context, args) => const LoginPage(),
+        ),
+
+        //navigation to saloon details page
+        ChildRoute<SaloonFormPage>(
+          RouteName.saloonFormPage,
+          child: (context, args) => SaloonFormPage(),
         ),
       ];
 }
