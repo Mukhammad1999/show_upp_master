@@ -10,6 +10,7 @@ import 'package:master_app/features/auth/data/repository/auth_repository_impl.da
 import 'package:master_app/features/auth/domain/repository/auth_repository.dart';
 import 'package:master_app/features/auth/presentation/controller/bloc/master_form_bloc.dart';
 import 'package:master_app/features/auth/presentation/pages/login_page.dart';
+import 'package:master_app/features/auth/presentation/pages/master_pages/worker_or_freelancer.dart';
 
 import 'package:master_app/features/auth/presentation/pages/master_signup_form.dart';
 import 'package:master_app/features/auth/presentation/pages/otp_page.dart';
@@ -27,7 +28,20 @@ class AuthModule extends Module {
             authRemoteDataSource: Modular.get<AuthRemoteDataSource>(),
           ),
         ),
-        //Http Client
+        //Dio
+        Bind.lazySingleton<Dio>(
+          (i) => Dio(
+            BaseOptions(
+              baseUrl: Constants.baseUrl,
+              extra: {
+                'withCredentials': true,
+              },
+            ),
+          )..interceptors.add(
+              ShowUppInterceptor(),
+            ),
+        ),
+        //Rest Api Client
         Bind.lazySingleton<Dio>(
           (i) => Dio(
             BaseOptions(
@@ -69,6 +83,11 @@ class AuthModule extends Module {
         ChildRoute<OtpPage>(
           RouteName.otpPage,
           child: (context, args) => const OtpPage(),
+        ),
+
+        ChildRoute<WorkerOrFreelancerPage>(
+          RouteName.workerOrFreelancerPage,
+          child: (context, args) => const WorkerOrFreelancerPage(),
         ),
 
         ChildRoute<LoginPage>(

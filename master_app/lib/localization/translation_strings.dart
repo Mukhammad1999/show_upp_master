@@ -1,6 +1,9 @@
+// ignore_for_file: library_private_types_in_public_api
+
 class TranslationStrings {
   static _Role role = _Role();
   static _Auth auth = _Auth();
+  static _Common common = _Common();
 }
 
 class _Role {
@@ -24,4 +27,10 @@ class _Auth {
   final String logIn = 'auth.log_in';
   final String signUp = 'auth.sign_up';
   final String or = 'auth.or';
+  final String saloonWorker = 'auth.saloon_worker';
+  final String onFreelance = 'auth.on_freelance';
+}
+
+class _Common {
+  final String search = 'common.search';
 }

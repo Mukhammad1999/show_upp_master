@@ -1,5 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:master_app/app/navigation/route_names.dart';
 import 'package:master_app/app/ui/widgets/buttons/app_rounded_button.dart';
 import 'package:master_app/app/ui/widgets/show_up_logo.dart';
 import 'package:master_app/features/auth/presentation/widgets/phone_form_text_field.dart';
@@ -41,7 +43,9 @@ class LoginPage extends StatelessWidget {
                     ),
                     RoundedTextButton(
                       title: TranslationStrings.auth.signUp.tr(),
-                      onPressed: () {},
+                      onPressed: () {
+                        Modular.to.pushNamed(RouteName.workerOrFreelancerPage);
+                      },
                       buttonColor: Theme.of(context).primaryColor,
                     ),
                   ],

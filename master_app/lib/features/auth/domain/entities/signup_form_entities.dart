@@ -109,6 +109,20 @@ enum Gender {
         return 2;
     }
   }
+
+  Gender fromInt(int genderNumber) {
+    switch (genderNumber) {
+      case 1:
+        return Gender.male;
+      case 2:
+        return Gender.female;
+      case 0:
+        return Gender.other;
+
+      default:
+        return Gender.female;
+    }
+  }
 }
 
 extension GenderExtension on Gender {

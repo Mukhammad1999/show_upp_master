@@ -15,6 +15,10 @@
     "auth.number_description": "{number} telefon raqamiga ga jo'natilgan 6-tali raqamni kiriting",
     "auth.log_in": "KIRISH",
     "auth.sign_up": "AKKAUNT YARATISH",
-    "auth.or" : "YOKI"
+    "auth.or" : "YOKI",
+    "auth.saloon_worker": "Salonda ishlasangiz, iltimos, qaysidaligini belgilang",
+    "common.search": "Qidirish",
+    "auth.on_freelance": "Freelansda"
+
     
 }

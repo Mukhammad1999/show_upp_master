@@ -27,9 +27,10 @@ class RightToLeftCurvature extends ContinuousRectangleBorder {
 class LeftToRightCurvature extends ContinuousRectangleBorder {
   @override
   Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
-    final controlPoint1 = Offset(rect.width - rect.width / 5, rect.height);
-    final controlPoint2 = Offset(rect.width / 1.5, rect.height - 120);
-    final endPoint = Offset(0, rect.height - 50);
+    final controlPoint1 = Offset(rect.width / 5, rect.height);
+    final controlPoint2 =
+        Offset(rect.width - rect.width / 1.5, rect.height - 120);
+    final endPoint = Offset(rect.width, rect.height - 50);
     //fromRightToLeft
     return Path()
       ..lineTo(rect.width, 0)

@@ -15,5 +15,9 @@
     "auth.number_description": "Введите 6-значный код, отправленный на номер {number} по SMS",
     "auth.log_in": "ВОЙТИ",
     "auth.sign_up": "СОЗДАЙТЕ АККАУНТ",
-    "auth.or" : "ИЛИ"
+    "auth.or" : "ИЛИ",
+    "auth.saloon_worker": "Если вы работаете в салоне, пожалуйста,  укажите в каком",
+    "auth.on_freelance": "На фрилансе",
+
+    "common.search": "Поиск"
 }

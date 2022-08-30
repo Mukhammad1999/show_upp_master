@@ -2,6 +2,9 @@
     "role.choose_role_question":"Choose your role",
     "role.master": "MASTER",
     "role.saloon": "SALOON",
+
+
+
     "auth.your_data": "Your data",
     "auth.fill_in_your_data_des": "Fill in your data to proceed. (all fields are required)",
     "auth.name": "Name",
@@ -15,6 +18,14 @@
     "auth.number_description": "Enter 6-digit number, sent by SMS to {number} phone number",
     "auth.log_in": "SIGN IN",
     "auth.sign_up": "CREATE ACCOUNT",
-    "auth.or" : "OR"
+    "auth.or" : "OR",
+    "auth.saloon_worker": "If you work for specific saloon, please, specify in which",
+    "auth.on_freelance": "freelance",
+
+
+
+
+    "common.search": "Search"
+
    
 }
