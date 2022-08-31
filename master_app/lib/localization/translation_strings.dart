@@ -29,6 +29,7 @@ class _Auth {
   final String or = 'auth.or';
   final String saloonWorker = 'auth.saloon_worker';
   final String onFreelance = 'auth.on_freelance';
+  final String possibleSaloons = 'auth.possible_saloon';
 }
 
 class _Common {

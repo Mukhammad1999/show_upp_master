@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:master_app/app/ui/style/app_typography.dart';
 import 'package:master_app/localization/translation_strings.dart';
 
 class SearchTextField extends StatefulWidget {
@@ -41,13 +42,16 @@ class _SearchTextFieldState extends State<SearchTextField> {
       enabled: widget.enabled,
       onTap: widget.onTap,
       decoration: InputDecoration(
-        contentPadding: const EdgeInsets.all(6),
+        contentPadding: const EdgeInsets.fromLTRB(21, 6, 6, 6),
         suffixIcon: SearchButton(
           onPressed: () => widget.onButtonTap!.call(
             _textEditingController.value.text,
           ),
         ),
         hintText: TranslationStrings.common.search.tr().toUpperCase(),
+        hintStyle: AppTypography.appBarTitleStyle.copyWith(
+          color: Theme.of(context).hintColor,
+        ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),
           borderSide: BorderSide(
@@ -81,7 +85,7 @@ class SearchButton extends StatelessWidget {
           ),
         ),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15),
+          padding: const EdgeInsets.symmetric(horizontal: 30),
           child: Icon(
             Icons.search,
             color: Theme.of(context).backgroundColor,

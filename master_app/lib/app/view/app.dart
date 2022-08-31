@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:master_app/app/navigation/auth_module.dart';
+import 'package:master_app/app/navigation/app_module.dart';
 import 'package:master_app/app/ui/style/app_theme.dart';
 
 class App extends StatelessWidget {
@@ -19,17 +19,19 @@ class App extends StatelessWidget {
       fallbackLocale: const Locale('ru'),
       useOnlyLangCode: true,
       child: ModularApp(
-        module: AuthModule(),
-        child: Builder(builder: (context) {
-          return MaterialApp.router(
-            theme: AppTheme.lightTheme,
-            locale: context.locale,
-            routerDelegate: Modular.routerDelegate,
-            localizationsDelegates: context.localizationDelegates,
-            supportedLocales: context.supportedLocales,
-            routeInformationParser: Modular.routeInformationParser,
-          );
-        }),
+        module: NavigationModule(),
+        child: Builder(
+          builder: (context) {
+            return MaterialApp.router(
+              theme: AppTheme.lightTheme,
+              locale: context.locale,
+              routerDelegate: Modular.routerDelegate,
+              localizationsDelegates: context.localizationDelegates,
+              supportedLocales: context.supportedLocales,
+              routeInformationParser: Modular.routeInformationParser,
+            );
+          },
+        ),
       ),
     );
   }

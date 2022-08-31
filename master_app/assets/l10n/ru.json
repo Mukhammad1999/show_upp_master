@@ -18,6 +18,7 @@
     "auth.or" : "ИЛИ",
     "auth.saloon_worker": "Если вы работаете в салоне, пожалуйста,  укажите в каком",
     "auth.on_freelance": "На фрилансе",
+    "auth.possible_saloon": "Возможные салоны",
 
     "common.search": "Поиск"
 }

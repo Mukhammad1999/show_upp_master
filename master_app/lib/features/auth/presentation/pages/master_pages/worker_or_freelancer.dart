@@ -1,5 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:master_app/app/navigation/route_names.dart';
 import 'package:master_app/app/ui/style/app_typography.dart';
 import 'package:master_app/app/ui/widgets/buttons/app_text_button.dart';
 import 'package:master_app/app/ui/widgets/cartoon_displayer.dart';
@@ -42,10 +44,14 @@ class WorkerOrFreelancerPage extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
             ),
             GestureDetector(
-              onTap: () {},
-              child: SearchTextField(
-                enabled: false,
-                onTap: () {},
+              onTap: () {
+                Modular.to.pushNamed(RouteName.chooseSaloonPage);
+              },
+              child: const Hero(
+                tag: 'chooseSaloon',
+                child: SearchTextField(
+                  enabled: false,
+                ),
               ),
             ),
             Column(

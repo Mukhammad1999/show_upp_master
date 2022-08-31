@@ -15,6 +15,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   intl: ^0.17.0
+  #navigation
   flutter_modular: ^5.0.3
   easy_localization: ^3.0.1
   flutter_svg: ^1.1.1+1
@@ -23,10 +24,9 @@ dependencies:
   mask_input_formatter: ^0.0.3
   dio: ^4.0.6
   flutter_spinkit: ^5.1.0
-  get_ip_address: ^0.0.5
-  dart_ipify: ^1.1.1
   pin_code_fields: ^7.4.0
   retrofit: ^3.0.1+1
+  flutter_secure_storage: ^6.0.0
   
   
   

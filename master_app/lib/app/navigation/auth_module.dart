@@ -10,6 +10,7 @@ import 'package:master_app/features/auth/data/repository/auth_repository_impl.da
 import 'package:master_app/features/auth/domain/repository/auth_repository.dart';
 import 'package:master_app/features/auth/presentation/controller/bloc/master_form_bloc.dart';
 import 'package:master_app/features/auth/presentation/pages/login_page.dart';
+import 'package:master_app/features/auth/presentation/pages/master_pages/choose_saloon_page.dart';
 import 'package:master_app/features/auth/presentation/pages/master_pages/worker_or_freelancer.dart';
 
 import 'package:master_app/features/auth/presentation/pages/master_signup_form.dart';
@@ -88,6 +89,10 @@ class AuthModule extends Module {
         ChildRoute<WorkerOrFreelancerPage>(
           RouteName.workerOrFreelancerPage,
           child: (context, args) => const WorkerOrFreelancerPage(),
+        ),
+        ChildRoute<ChooseSaloonPage>(
+          RouteName.chooseSaloonPage,
+          child: (context, args) => const ChooseSaloonPage(),
         ),
 
         ChildRoute<LoginPage>(

@@ -21,6 +21,7 @@
     "auth.or" : "OR",
     "auth.saloon_worker": "If you work for specific saloon, please, specify in which",
     "auth.on_freelance": "freelance",
+    "auth.possible_saloon": "Possible saloons",
 
 
 
