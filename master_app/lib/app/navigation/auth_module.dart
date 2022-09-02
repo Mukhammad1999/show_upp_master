@@ -13,7 +13,7 @@ import 'package:master_app/features/auth/presentation/pages/login_page.dart';
 import 'package:master_app/features/auth/presentation/pages/master_pages/choose_saloon_page.dart';
 import 'package:master_app/features/auth/presentation/pages/master_pages/worker_or_freelancer.dart';
 
-import 'package:master_app/features/auth/presentation/pages/master_signup_form.dart';
+import 'package:master_app/features/auth/presentation/pages/master_pages/master_signup_form.dart';
 import 'package:master_app/features/auth/presentation/pages/otp_page.dart';
 
 class AuthModule extends Module {
@@ -93,6 +93,7 @@ class AuthModule extends Module {
         ChildRoute<ChooseSaloonPage>(
           RouteName.chooseSaloonPage,
           child: (context, args) => const ChooseSaloonPage(),
+          transition: TransitionType.downToUp,
         ),
 
         ChildRoute<LoginPage>(

@@ -3,6 +3,7 @@ import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:master_app/app/enums/gender.dart';
 import 'package:master_app/features/auth/domain/entities/signup_form_entities.dart';
 import 'package:master_app/features/auth/domain/repository/auth_repository.dart';
 

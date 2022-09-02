@@ -17,16 +17,24 @@ dependencies:
   intl: ^0.17.0
   #navigation
   flutter_modular: ^5.0.3
+
+  #localization
   easy_localization: ^3.0.1
   flutter_svg: ^1.1.1+1
   freezed_annotation: ^2.1.0
   equatable: ^2.0.3
   mask_input_formatter: ^0.0.3
-  dio: ^4.0.6
+  
   flutter_spinkit: ^5.1.0
   pin_code_fields: ^7.4.0
+
+  #networking
   retrofit: ^3.0.1+1
+  dio: ^4.0.6
+
+  #local_storage
   flutter_secure_storage: ^6.0.0
+  auto_size_text: ^3.0.0
   
   
   

@@ -1,6 +1,10 @@
 part of 'login_bloc.dart';
 
-@immutable
-abstract class LoginState {}
-
-class LoginInitial extends LoginState {}
+@freezed
+class LoginState with _$LoginState {
+  const factory LoginState.initial() = Initial;
+  const factory LoginState.loading() = Loading;
+  const factory LoginState.success(
+      {required LoginResponseEntity loginResponseEntity}) = Success;
+  const factory LoginState.error() = Error;
+}

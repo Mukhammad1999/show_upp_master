@@ -1,4 +1,6 @@
 part of 'login_bloc.dart';
 
-@immutable
-abstract class LoginEvent {}
+@freezed
+class LoginEvent with _$LoginEvent {
+  const factory LoginEvent.logIn() = Login;
+}

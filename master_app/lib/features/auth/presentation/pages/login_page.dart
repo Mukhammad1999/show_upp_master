@@ -12,47 +12,47 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        resizeToAvoidBottomInset: false,
-        body: Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 40,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const Expanded(
-                child: ShowUppLogo(),
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      body: Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 40,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const Expanded(
+              child: ShowUppLogo(),
+            ),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  const PhoneFormTextField(
+                    isFullFilled: true,
+                  ),
+                  RoundedTextButton(
+                    title: TranslationStrings.auth.logIn.tr(),
+                    buttonColor: Theme.of(context).primaryColor,
+                  ),
+                  TextEmphisizer(
+                    text: TranslationStrings.auth.or.tr(),
+                  ),
+                  RoundedTextButton(
+                    title: TranslationStrings.auth.signUp.tr(),
+                    onPressed: () {
+                      Modular.to.pushNamed(
+                        RouteName.chooseRolePage,
+                      );
+                    },
+                    buttonColor: Theme.of(context).primaryColor,
+                  ),
+                ],
               ),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    const PhoneFormTextField(
-                      isFullFilled: true,
-                    ),
-                    RoundedTextButton(
-                      title: TranslationStrings.auth.logIn.tr(),
-                      buttonColor: Theme.of(context).primaryColor,
-                    ),
-                    TextEmphisizer(
-                      text: TranslationStrings.auth.or.tr(),
-                    ),
-                    RoundedTextButton(
-                      title: TranslationStrings.auth.signUp.tr(),
-                      onPressed: () {
-                        Modular.to.pushNamed(RouteName.workerOrFreelancerPage);
-                      },
-                      buttonColor: Theme.of(context).primaryColor,
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

@@ -2,10 +2,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:master_app/app/index/index.dart';
-import 'package:master_app/app/navigation/route_names.dart';
 
 import 'package:master_app/app/ui/images/images.dart';
-import 'package:master_app/app/ui/widgets/buttons/app_text_button.dart';
 import 'package:master_app/app/ui/widgets/cartoon_displayer.dart';
 import 'package:master_app/localization/translation_strings.dart';
 

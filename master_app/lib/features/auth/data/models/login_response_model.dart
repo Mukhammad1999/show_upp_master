@@ -1,5 +1,7 @@
+import 'package:master_app/app/enums/gender.dart';
 import 'package:master_app/features/auth/domain/entities/login_response.dart';
-import 'package:master_app/features/auth/domain/entities/signup_form_entities.dart';
+import 'package:master_app/features/auth/domain/entities/signup_form_entities.dart'
+    hide Gender;
 
 class LoginResponseModel extends LoginResponseEntity {
   const LoginResponseModel({

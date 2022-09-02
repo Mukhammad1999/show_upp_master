@@ -1,6 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:equatable/equatable.dart';
-import 'package:master_app/features/auth/domain/entities/signup_form_entities.dart';
+import 'package:master_app/app/enums/gender.dart';
 
 class LoginResponseEntity extends Equatable {
   final String id;
