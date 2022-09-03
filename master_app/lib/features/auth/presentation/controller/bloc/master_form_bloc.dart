@@ -1,12 +1,11 @@
 import 'dart:async';
 import 'dart:developer';
-
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:master_app/app/enums/gender.dart';
+import 'package:master_app/app/params/auth/master_signup_params.dart';
 import 'package:master_app/features/auth/domain/entities/signup_form_entities.dart';
 import 'package:master_app/features/auth/domain/repository/auth_repository.dart';
-
 part 'master_form_bloc.freezed.dart';
 part 'master_form_event.dart';
 part 'master_form_state.dart';
@@ -47,16 +46,25 @@ class MasterFormBloc extends Bloc<MasterFormEvent, MasterFormState> {
   }
 
   FutureOr<void> _submitForm(
-      SubmitForm event, Emitter<MasterFormState> emit) async {
+    SubmitForm event,
+    Emitter<MasterFormState> emit,
+  ) async {
     emit(FormLoading(masterFormEntity: state.masterFormEntity));
     try {
-      final result = await _authRepository.signUp(state.masterFormEntity);
-
+      final result = await _authRepository.signUp(
+        MasterSignUpParams(
+          phoneNumber: state.masterFormEntity.phoneNumber ?? '',
+          name: state.masterFormEntity.name ?? '',
+          surname: state.masterFormEntity.surname,
+          gender: state.masterFormEntity.gender,
+        ),
+      );
       if (result.isSuccessful) {
         emit(FormSuccess(masterFormEntity: state.masterFormEntity));
       }
-    } catch (e) {
+    } catch (e, stacTrace) {
       log(e.toString());
+      print(stacTrace);
       emit(FormError(masterFormEntity: state.masterFormEntity));
     }
   }

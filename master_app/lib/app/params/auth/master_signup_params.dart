@@ -1,3 +1,4 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:master_app/app/enums/gender.dart';
 
 abstract class SignUpParams {
@@ -8,6 +9,7 @@ abstract class SignUpParams {
 }
 
 //SignUp Params for Master
+@JsonSerializable()
 class MasterSignUpParams extends SignUpParams {
   MasterSignUpParams({
     required super.phoneNumber,
@@ -17,4 +19,10 @@ class MasterSignUpParams extends SignUpParams {
   });
   final String? surname;
   final Gender? gender;
+  Map<String, dynamic> toJson() => {
+        'firstName': name,
+        'lastName': surname,
+        'phone': '998${phoneNumber.replaceAll(' ', '')}',
+        'gender': gender!.toInt(),
+      };
 }

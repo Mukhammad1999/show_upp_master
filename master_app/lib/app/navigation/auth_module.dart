@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:master_app/app/constants/constants.dart';
+import 'package:master_app/app/http_client/clients/rest_api_client.dart';
 import 'package:master_app/app/http_client/interceptor.dart';
 import 'package:master_app/app/navigation/route_names.dart';
 import 'package:master_app/app/ui/presentation/pages/choose_role_page.dart';
@@ -11,9 +12,8 @@ import 'package:master_app/features/auth/domain/repository/auth_repository.dart'
 import 'package:master_app/features/auth/presentation/controller/bloc/master_form_bloc.dart';
 import 'package:master_app/features/auth/presentation/pages/login_page.dart';
 import 'package:master_app/features/auth/presentation/pages/master_pages/choose_saloon_page.dart';
-import 'package:master_app/features/auth/presentation/pages/master_pages/worker_or_freelancer.dart';
-
 import 'package:master_app/features/auth/presentation/pages/master_pages/master_signup_form.dart';
+import 'package:master_app/features/auth/presentation/pages/master_pages/worker_or_freelancer.dart';
 import 'package:master_app/features/auth/presentation/pages/otp_page.dart';
 
 class AuthModule extends Module {
@@ -21,7 +21,14 @@ class AuthModule extends Module {
   List<Bind> get binds => [
         //Remote Repository for Auth Repository
         Bind.lazySingleton<AuthRemoteDataSource>(
-          (i) => AuthRemoteDataSourceImpl(dio: Modular.get<Dio>()),
+          (i) => AuthRemoteDataSourceImpl(
+            restApi: Modular.get<RestClient>(),
+          ),
+        ),
+        Bind.lazySingleton(
+          (i) => RestClient(
+            Modular.get<Dio>(),
+          ),
         ),
         //will return implementation of Auth Repository
         Bind.lazySingleton<AuthRepository>(
@@ -51,8 +58,11 @@ class AuthModule extends Module {
                 'withCredentials': true,
               },
             ),
-          )..interceptors.add(
-              ShowUppInterceptor(),
+          )..interceptors.addAll(
+              [
+                ShowUppInterceptor(),
+                LogInterceptor(),
+              ],
             ),
         ),
       ];
