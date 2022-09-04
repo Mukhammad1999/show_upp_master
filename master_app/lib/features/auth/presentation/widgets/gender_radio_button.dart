@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:master_app/app/enums/gender.dart';
 import 'package:master_app/app/ui/style/app_typography.dart';
-import 'package:master_app/features/auth/domain/entities/signup_form_entities.dart';
 
 class GenderRadioButton extends StatelessWidget {
   const GenderRadioButton({
@@ -54,7 +54,7 @@ class SelectedRadioButton extends StatelessWidget {
             width: 10,
           ),
           Padding(
-            padding: const EdgeInsets.only(right: 7.0),
+            padding: const EdgeInsets.only(right: 7),
             child: Text(
               title,
               style: AppTypography.smallText.copyWith(

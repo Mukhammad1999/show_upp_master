@@ -12,7 +12,7 @@ class CartoonDisplayer extends StatelessWidget {
       builder: (context, constraints) {
         return SvgPicture.asset(
           assetName,
-          height: constraints.maxWidth > 375 ? 256 : 210,
+          height: constraints.maxWidth > 375 ? 256 : 200,
         );
       },
     );

@@ -98,22 +98,28 @@ class FullFillTextFormButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.all(17),
-      height: 30,
-      width: 30,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(
-          10,
+    return LayoutBuilder(builder: (context, constraints) {
+      final side = constraints.maxWidth > 300 ? 30.0 : 20.0;
+      final iconSize = constraints.maxWidth > 300 ? 17.0 : 13.0;
+      final borderRadius = constraints.maxWidth > 300 ? 10.0 : 5.0;
+
+      return Container(
+        margin: const EdgeInsets.all(17),
+        height: side,
+        width: side,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(
+            borderRadius,
+          ),
+          color: Theme.of(context).indicatorColor,
         ),
-        color: Theme.of(context).indicatorColor,
-      ),
-      child: Icon(
-        Icons.check,
-        size: 17,
-        color: Theme.of(context).backgroundColor,
-      ),
-    );
+        child: Icon(
+          Icons.check,
+          size: iconSize,
+          color: Theme.of(context).backgroundColor,
+        ),
+      );
+    });
   }
 }
 
@@ -124,23 +130,29 @@ class NonFullFillTextFormButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.all(17),
-      height: 30,
-      width: 30,
-      decoration: BoxDecoration(
-        border: Border.all(
-          width: 2,
-          color: Theme.of(context).hintColor,
+    return LayoutBuilder(builder: (context, constraints) {
+      final side = constraints.maxWidth > 300 ? 30.0 : 20.0;
+      final iconSize = constraints.maxWidth > 300 ? 17.0 : 13.0;
+      final borderRadius = constraints.maxWidth > 300 ? 10.0 : 5.0;
+      print(constraints.maxWidth);
+      return Container(
+        margin: const EdgeInsets.all(17),
+        height: side,
+        width: side,
+        decoration: BoxDecoration(
+          border: Border.all(
+            width: 2,
+            color: Theme.of(context).hintColor,
+          ),
+          borderRadius: BorderRadius.circular(
+            borderRadius,
+          ),
         ),
-        borderRadius: BorderRadius.circular(
-          10,
+        child: Icon(
+          Icons.close,
+          size: iconSize,
         ),
-      ),
-      child: const Icon(
-        Icons.close,
-        size: 17,
-      ),
-    );
+      );
+    });
   }
 }

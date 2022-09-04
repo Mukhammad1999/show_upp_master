@@ -7,7 +7,7 @@ class SignUpResult extends Equatable {
     required this.message,
     required this.additionalInfo,
     this.verificationCode,
-    required this.isSuccessful,
+    this.isSuccessful = false,
   });
   final String message;
   final bool isSuccessful;
@@ -15,6 +15,10 @@ class SignUpResult extends Equatable {
   final String additionalInfo;
 
   @override
-  List<Object?> get props =>
-      [message, isSuccessful, verificationCode, additionalInfo];
+  List<Object?> get props => [
+        message,
+        verificationCode,
+        additionalInfo,
+        isSuccessful,
+      ];
 }
