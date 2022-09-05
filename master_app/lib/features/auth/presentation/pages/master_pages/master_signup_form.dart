@@ -15,32 +15,27 @@ class MasterFormRegistration extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final masterBloc = context.read<MasterFormBloc>();
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      appBar: CurvedAppBar(
-        curvature: Curvature.rightToLeft,
-        title: TranslationStrings.role.master.tr(),
-        backgroundColor: Theme.of(context).primaryColor,
-      ),
-      body: BlocConsumer<MasterFormBloc, MasterFormState>(
-        listener: (context, state) {
-          state.maybeWhen(
-            orElse: () => null,
-            success: (entity) => Modular.to.pushNamed(RouteName.otpPage),
-          );
-        },
-        builder: (context, state) {
-          return Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 40,
-            ),
-            child: GestureDetector(
-              onTap: () {
-                final currentFocus = FocusScope.of(context);
-                if (!currentFocus.hasPrimaryFocus) {
-                  currentFocus.unfocus();
-                }
-              },
+    return GestureDetector(
+      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        appBar: CurvedAppBar(
+          curvature: Curvature.rightToLeft,
+          title: TranslationStrings.role.master.tr(),
+          backgroundColor: Theme.of(context).primaryColor,
+        ),
+        body: BlocConsumer<MasterFormBloc, MasterFormState>(
+          listener: (context, state) {
+            state.maybeWhen(
+              orElse: () => null,
+              success: (entity) => Modular.to.pushNamed(RouteName.otpPage),
+            );
+          },
+          builder: (context, state) {
+            return Padding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 40,
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -48,75 +43,56 @@ class MasterFormRegistration extends StatelessWidget {
                   SemiBoldTitle(
                     title: TranslationStrings.auth.yourData.tr(),
                   ),
-                  LayoutBuilder(
-                    builder: (ctx, cnts) {
-                      final height = cnts.maxWidth > 310 ? 22.0 : 15.0;
-                      return SizedBox(
-                        height: height,
-                      );
-                    },
-                  ),
-
                   //field for collecting name from the user
-                  Flexible(
-                    flex: 3,
+                  Expanded(
+                    flex: 13,
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Flexible(
-                          flex: 2,
-                          child: Column(
-                            children: [
-                              StringTextFormField(
-                                isFullFilled:
-                                    state.masterFormEntity.name!.length >= 2,
-                                hint: TranslationStrings.auth.name.tr(),
-                                onChanged: (name) {
-                                  masterBloc.add(
-                                    MasterFormEvent.update(
-                                      updateEvent:
-                                          UpdateMasterForm.name(name: name),
-                                    ),
-                                  );
-                                },
-                                onErase: () {
-                                  masterBloc.add(
-                                    const MasterFormEvent.update(
-                                      updateEvent:
-                                          UpdateMasterForm.name(name: ''),
-                                    ),
-                                  );
-                                },
+                        StringTextFormField(
+                          isFullFilled:
+                              state.masterFormEntity.name!.length >= 2,
+                          hint: TranslationStrings.auth.name.tr(),
+                          onChanged: (name) {
+                            masterBloc.add(
+                              MasterFormEvent.update(
+                                updateEvent: UpdateMasterForm.name(name: name),
                               ),
-                              const SizedBox(
-                                height: 17,
+                            );
+                          },
+                          onErase: () {
+                            masterBloc.add(
+                              const MasterFormEvent.update(
+                                updateEvent: UpdateMasterForm.name(name: ''),
                               ),
-                              StringTextFormField(
-                                isFullFilled:
-                                    state.masterFormEntity.surname!.length >= 2,
-                                hint: TranslationStrings.auth.surname.tr(),
-                                onChanged: (surname) {
-                                  masterBloc.add(
-                                    MasterFormEvent.update(
-                                      updateEvent: UpdateMasterForm.surname(
-                                        surname: surname,
-                                      ),
-                                    ),
-                                  );
-                                },
-                                onErase: () {
-                                  masterBloc.add(
-                                    const MasterFormEvent.update(
-                                      updateEvent:
-                                          UpdateMasterForm.surname(surname: ''),
-                                    ),
-                                  );
-                                },
-                              ),
-                            ],
-                          ),
+                            );
+                          },
                         ),
-                        Flexible(
+                        StringTextFormField(
+                          isFullFilled:
+                              state.masterFormEntity.surname!.length >= 2,
+                          hint: TranslationStrings.auth.surname.tr(),
+                          onChanged: (surname) {
+                            masterBloc.add(
+                              MasterFormEvent.update(
+                                updateEvent: UpdateMasterForm.surname(
+                                  surname: surname,
+                                ),
+                              ),
+                            );
+                          },
+                          onErase: () {
+                            masterBloc.add(
+                              const MasterFormEvent.update(
+                                updateEvent:
+                                    UpdateMasterForm.surname(surname: ''),
+                              ),
+                            );
+                          },
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 16.0),
                           child: PhoneFormTextField(
                             isFullFilled: state.masterFormEntity.phoneNumber!
                                     .trim()
@@ -142,40 +118,36 @@ class MasterFormRegistration extends StatelessWidget {
                             },
                           ),
                         ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: List.generate(
+                            Gender.values.length,
+                            (index) => GestureDetector(
+                              onTap: () {
+                                masterBloc.add(
+                                  MasterFormEvent.update(
+                                    updateEvent: UpdateMasterForm.gender(
+                                      gender: Gender.values[index],
+                                    ),
+                                  ),
+                                );
+                              },
+                              child: GenderRadioButton(
+                                gender: Gender.values[index],
+                                isSelected: state.masterFormEntity.gender ==
+                                    Gender.values[index],
+                              ),
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
-
-                  Flexible(
-                    flex: 2,
+                  Expanded(
+                    flex: 4,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: List.generate(
-                        Gender.values.length,
-                        (index) => GestureDetector(
-                          onTap: () {
-                            masterBloc.add(
-                              MasterFormEvent.update(
-                                updateEvent: UpdateMasterForm.gender(
-                                  gender: Gender.values[index],
-                                ),
-                              ),
-                            );
-                          },
-                          child: GenderRadioButton(
-                            gender: Gender.values[index],
-                            isSelected: state.masterFormEntity.gender ==
-                                Gender.values[index],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Flexible(
-                    flex: 2,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         AutoSizeText(
                           TranslationStrings.auth.fillInMasterForm.tr(),
@@ -186,38 +158,34 @@ class MasterFormRegistration extends StatelessWidget {
                           ),
                           overflow: TextOverflow.ellipsis,
                         ),
-                        SafeArea(
-                          child: AppTextButton(
-                            isLoading: state.maybeWhen(
-                              orElse: () => false,
-                              loading: (entity) => true,
-                            ),
-                            title: TranslationStrings.auth.confirm.tr(),
-                            onPressed: (state.masterFormEntity.phoneNumber!
-                                            .trim()
-                                            .length ==
-                                        12) &&
-                                    (state.masterFormEntity.surname!.length >=
-                                        2) &&
-                                    (state.masterFormEntity.name!.length >= 2)
-                                ? () {
-                                    masterBloc
-                                        .add(const MasterFormEvent.submit());
-                                  }
-                                : null,
+                        AppTextButton(
+                          isLoading: state.maybeWhen(
+                            orElse: () => false,
+                            loading: (entity) => true,
                           ),
+                          title: TranslationStrings.auth.confirm.tr(),
+                          onPressed: (state.masterFormEntity.phoneNumber!
+                                          .trim()
+                                          .length ==
+                                      12) &&
+                                  (state.masterFormEntity.surname!.length >=
+                                      2) &&
+                                  (state.masterFormEntity.name!.length >= 2)
+                              ? () {
+                                  masterBloc
+                                      .add(const MasterFormEvent.submit());
+                                }
+                              : null,
                         ),
                       ],
                     ),
                   ),
-                  const SizedBox(
-                    height: 10,
-                  ),
+                  const Spacer(),
                 ],
               ),
-            ),
-          );
-        },
+            );
+          },
+        ),
       ),
     );
   }

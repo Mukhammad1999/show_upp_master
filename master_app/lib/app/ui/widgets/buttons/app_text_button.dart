@@ -26,7 +26,7 @@ class AppTextButton extends StatelessWidget {
       disabledColor: Theme.of(context).disabledColor,
       padding: const EdgeInsets.symmetric(
         horizontal: 71,
-        vertical: 23,
+        vertical: 20,
       ),
       color: color ?? Theme.of(context).primaryColor,
       onPressed: onPressed,
