@@ -2,10 +2,12 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:master_app/app/navigation/route_names.dart';
 import 'package:master_app/app/ui/style/app_typography.dart';
 import 'package:master_app/app/ui/widgets/buttons/app_text_button.dart';
 import 'package:master_app/app/ui/widgets/curvatures.dart';
 import 'package:master_app/app/ui/widgets/curved_app_bar.dart';
+import 'package:master_app/app/ui/widgets/text_fields/location_text_field.dart';
 import 'package:master_app/app/ui/widgets/titles.dart';
 import 'package:master_app/features/auth/presentation/controller/saloon_bloc/saloon_form_bloc.dart';
 import 'package:master_app/features/auth/presentation/widgets/phone_form_text_field.dart';
@@ -61,11 +63,17 @@ class SaloonFormPage extends StatelessWidget {
                               ),
                             ),
                           ),
-                          StringTextFormField(
-                            isFullFilled: false,
-                            hint: TranslationStrings.auth.location.tr(),
+                          LocationTextField(
                             onChanged: (name) {},
-                            onErase: () {},
+                            onButtonTap: (p0) {
+                              Modular.to.pushNamed(
+                                RouteName.chooseLocationPage,
+                                arguments: {
+                                  'title': TranslationStrings.role.saloon.tr(),
+                                },
+                              );
+                            },
+                            enabled: true,
                           ),
                           PhoneFormTextField(
                             isFullFilled: state is FormUpdate &&

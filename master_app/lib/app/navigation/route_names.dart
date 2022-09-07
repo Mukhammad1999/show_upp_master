@@ -7,4 +7,5 @@ class RouteName {
   static const String loginPage = '/';
   static const String workerOrFreelancerPage = '/workerOrFreelancer';
   static const String chooseSaloonPage = '/chooseSaloonPage';
+  static const String chooseLocationPage = '/chooseLocationPage';
 }
