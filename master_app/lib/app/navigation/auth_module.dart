@@ -27,6 +27,7 @@ class AuthModule extends Module {
             restApi: Modular.get<RestClient>(),
           ),
         ),
+
         Bind.lazySingleton(
           (i) => RestClient(
             Modular.get<Dio>(),

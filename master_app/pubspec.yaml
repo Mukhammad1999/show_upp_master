@@ -18,6 +18,11 @@ dependencies:
   #navigation
   flutter_modular: ^5.0.3
 
+  #map
+  flutter_map: ^3.0.0
+  google_geocoding: ^0.2.0
+  location: ^4.4.0
+
   #localization
   easy_localization: ^3.0.1
   flutter_svg: ^1.1.1+1

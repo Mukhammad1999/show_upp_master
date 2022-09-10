@@ -36,4 +36,5 @@ class _Auth {
 
 class _Common {
   final String search = 'common.search';
+  final String confirm = 'common.confirm';
 }

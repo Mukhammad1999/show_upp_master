@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:location/location.dart';
 import 'package:master_app/app/entities/location_entity.dart';
 import 'package:master_app/app/utils/service/location_service.dart';
 
@@ -24,11 +25,28 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
   FutureOr<void> _fetchLocation(
     FetchLocation event,
     Emitter<LocationState> emit,
-  ) {
+  ) async {
     emit(
       const LocationState.loading(),
     );
-    try {} catch (e) {
+    try {
+      final result = await _locationService.fetchGeoCoding(
+        event.lat,
+        event.lon,
+        event.locale,
+      );
+      final userLocation = await _locationService.getLocation();
+      print(userLocation);
+      emit(
+        LocationSuccess(
+          locationEntity: result,
+          userLocation: LocationEntity(
+            latitude: 44,
+            longitude: 43,
+          ),
+        ),
+      );
+    } catch (e) {
       emit(
         LocationState.error(
           errorMessage: e.toString(),

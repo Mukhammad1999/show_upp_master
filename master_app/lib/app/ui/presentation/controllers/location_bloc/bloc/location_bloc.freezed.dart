@@ -16,19 +16,23 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$LocationEvent {
+  double get lat => throw _privateConstructorUsedError;
+  double get lon => throw _privateConstructorUsedError;
+  String get locale => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetchLocation,
+    required TResult Function(double lat, double lon, String locale)
+        fetchLocation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? fetchLocation,
+    TResult Function(double lat, double lon, String locale)? fetchLocation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchLocation,
+    TResult Function(double lat, double lon, String locale)? fetchLocation,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -48,6 +52,10 @@ mixin _$LocationEvent {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $LocationEventCopyWith<LocationEvent> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -55,6 +63,7 @@ abstract class $LocationEventCopyWith<$Res> {
   factory $LocationEventCopyWith(
           LocationEvent value, $Res Function(LocationEvent) then) =
       _$LocationEventCopyWithImpl<$Res>;
+  $Res call({double lat, double lon, String locale});
 }
 
 /// @nodoc
@@ -65,13 +74,38 @@ class _$LocationEventCopyWithImpl<$Res>
   final LocationEvent _value;
   // ignore: unused_field
   final $Res Function(LocationEvent) _then;
+
+  @override
+  $Res call({
+    Object? lat = freezed,
+    Object? lon = freezed,
+    Object? locale = freezed,
+  }) {
+    return _then(_value.copyWith(
+      lat: lat == freezed
+          ? _value.lat
+          : lat // ignore: cast_nullable_to_non_nullable
+              as double,
+      lon: lon == freezed
+          ? _value.lon
+          : lon // ignore: cast_nullable_to_non_nullable
+              as double,
+      locale: locale == freezed
+          ? _value.locale
+          : locale // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
-abstract class _$$FetchLocationCopyWith<$Res> {
+abstract class _$$FetchLocationCopyWith<$Res>
+    implements $LocationEventCopyWith<$Res> {
   factory _$$FetchLocationCopyWith(
           _$FetchLocation value, $Res Function(_$FetchLocation) then) =
       __$$FetchLocationCopyWithImpl<$Res>;
+  @override
+  $Res call({double lat, double lon, String locale});
 }
 
 /// @nodoc
@@ -84,51 +118,95 @@ class __$$FetchLocationCopyWithImpl<$Res>
 
   @override
   _$FetchLocation get _value => super._value as _$FetchLocation;
+
+  @override
+  $Res call({
+    Object? lat = freezed,
+    Object? lon = freezed,
+    Object? locale = freezed,
+  }) {
+    return _then(_$FetchLocation(
+      lat: lat == freezed
+          ? _value.lat
+          : lat // ignore: cast_nullable_to_non_nullable
+              as double,
+      lon: lon == freezed
+          ? _value.lon
+          : lon // ignore: cast_nullable_to_non_nullable
+              as double,
+      locale: locale == freezed
+          ? _value.locale
+          : locale // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$FetchLocation implements FetchLocation {
-  const _$FetchLocation();
+  const _$FetchLocation(
+      {required this.lat, required this.lon, required this.locale});
+
+  @override
+  final double lat;
+  @override
+  final double lon;
+  @override
+  final String locale;
 
   @override
   String toString() {
-    return 'LocationEvent.fetchLocation()';
+    return 'LocationEvent.fetchLocation(lat: $lat, lon: $lon, locale: $locale)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$FetchLocation);
+        (other.runtimeType == runtimeType &&
+            other is _$FetchLocation &&
+            const DeepCollectionEquality().equals(other.lat, lat) &&
+            const DeepCollectionEquality().equals(other.lon, lon) &&
+            const DeepCollectionEquality().equals(other.locale, locale));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(lat),
+      const DeepCollectionEquality().hash(lon),
+      const DeepCollectionEquality().hash(locale));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$FetchLocationCopyWith<_$FetchLocation> get copyWith =>
+      __$$FetchLocationCopyWithImpl<_$FetchLocation>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() fetchLocation,
+    required TResult Function(double lat, double lon, String locale)
+        fetchLocation,
   }) {
-    return fetchLocation();
+    return fetchLocation(lat, lon, locale);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? fetchLocation,
+    TResult Function(double lat, double lon, String locale)? fetchLocation,
   }) {
-    return fetchLocation?.call();
+    return fetchLocation?.call(lat, lon, locale);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? fetchLocation,
+    TResult Function(double lat, double lon, String locale)? fetchLocation,
     required TResult orElse(),
   }) {
     if (fetchLocation != null) {
-      return fetchLocation();
+      return fetchLocation(lat, lon, locale);
     }
     return orElse();
   }
@@ -163,7 +241,21 @@ class _$FetchLocation implements FetchLocation {
 }
 
 abstract class FetchLocation implements LocationEvent {
-  const factory FetchLocation() = _$FetchLocation;
+  const factory FetchLocation(
+      {required final double lat,
+      required final double lon,
+      required final String locale}) = _$FetchLocation;
+
+  @override
+  double get lat;
+  @override
+  double get lon;
+  @override
+  String get locale;
+  @override
+  @JsonKey(ignore: true)
+  _$$FetchLocationCopyWith<_$FetchLocation> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -171,21 +263,27 @@ mixin _$LocationState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(LocationEntity locationEntity) success,
+    required TResult Function(
+            LocationEntity locationEntity, LocationEntity userLocation)
+        success,
     required TResult Function(String errorMessage) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(LocationEntity locationEntity)? success,
+    TResult Function(
+            LocationEntity locationEntity, LocationEntity userLocation)?
+        success,
     TResult Function(String errorMessage)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(LocationEntity locationEntity)? success,
+    TResult Function(
+            LocationEntity locationEntity, LocationEntity userLocation)?
+        success,
     TResult Function(String errorMessage)? error,
     required TResult orElse(),
   }) =>
@@ -273,7 +371,9 @@ class _$LocationLoading implements LocationLoading {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(LocationEntity locationEntity) success,
+    required TResult Function(
+            LocationEntity locationEntity, LocationEntity userLocation)
+        success,
     required TResult Function(String errorMessage) error,
   }) {
     return loading();
@@ -283,7 +383,9 @@ class _$LocationLoading implements LocationLoading {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(LocationEntity locationEntity)? success,
+    TResult Function(
+            LocationEntity locationEntity, LocationEntity userLocation)?
+        success,
     TResult Function(String errorMessage)? error,
   }) {
     return loading?.call();
@@ -293,7 +395,9 @@ class _$LocationLoading implements LocationLoading {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(LocationEntity locationEntity)? success,
+    TResult Function(
+            LocationEntity locationEntity, LocationEntity userLocation)?
+        success,
     TResult Function(String errorMessage)? error,
     required TResult orElse(),
   }) {
@@ -347,7 +451,7 @@ abstract class _$$LocationSuccessCopyWith<$Res> {
   factory _$$LocationSuccessCopyWith(
           _$LocationSuccess value, $Res Function(_$LocationSuccess) then) =
       __$$LocationSuccessCopyWithImpl<$Res>;
-  $Res call({LocationEntity locationEntity});
+  $Res call({LocationEntity locationEntity, LocationEntity userLocation});
 }
 
 /// @nodoc
@@ -364,11 +468,16 @@ class __$$LocationSuccessCopyWithImpl<$Res>
   @override
   $Res call({
     Object? locationEntity = freezed,
+    Object? userLocation = freezed,
   }) {
     return _then(_$LocationSuccess(
       locationEntity: locationEntity == freezed
           ? _value.locationEntity
           : locationEntity // ignore: cast_nullable_to_non_nullable
+              as LocationEntity,
+      userLocation: userLocation == freezed
+          ? _value.userLocation
+          : userLocation // ignore: cast_nullable_to_non_nullable
               as LocationEntity,
     ));
   }
@@ -377,14 +486,17 @@ class __$$LocationSuccessCopyWithImpl<$Res>
 /// @nodoc
 
 class _$LocationSuccess implements LocationSuccess {
-  const _$LocationSuccess({required this.locationEntity});
+  const _$LocationSuccess(
+      {required this.locationEntity, required this.userLocation});
 
   @override
   final LocationEntity locationEntity;
+  @override
+  final LocationEntity userLocation;
 
   @override
   String toString() {
-    return 'LocationState.success(locationEntity: $locationEntity)';
+    return 'LocationState.success(locationEntity: $locationEntity, userLocation: $userLocation)';
   }
 
   @override
@@ -393,12 +505,16 @@ class _$LocationSuccess implements LocationSuccess {
         (other.runtimeType == runtimeType &&
             other is _$LocationSuccess &&
             const DeepCollectionEquality()
-                .equals(other.locationEntity, locationEntity));
+                .equals(other.locationEntity, locationEntity) &&
+            const DeepCollectionEquality()
+                .equals(other.userLocation, userLocation));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(locationEntity));
+      runtimeType,
+      const DeepCollectionEquality().hash(locationEntity),
+      const DeepCollectionEquality().hash(userLocation));
 
   @JsonKey(ignore: true)
   @override
@@ -409,32 +525,38 @@ class _$LocationSuccess implements LocationSuccess {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(LocationEntity locationEntity) success,
+    required TResult Function(
+            LocationEntity locationEntity, LocationEntity userLocation)
+        success,
     required TResult Function(String errorMessage) error,
   }) {
-    return success(locationEntity);
+    return success(locationEntity, userLocation);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(LocationEntity locationEntity)? success,
+    TResult Function(
+            LocationEntity locationEntity, LocationEntity userLocation)?
+        success,
     TResult Function(String errorMessage)? error,
   }) {
-    return success?.call(locationEntity);
+    return success?.call(locationEntity, userLocation);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(LocationEntity locationEntity)? success,
+    TResult Function(
+            LocationEntity locationEntity, LocationEntity userLocation)?
+        success,
     TResult Function(String errorMessage)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
-      return success(locationEntity);
+      return success(locationEntity, userLocation);
     }
     return orElse();
   }
@@ -476,9 +598,11 @@ class _$LocationSuccess implements LocationSuccess {
 
 abstract class LocationSuccess implements LocationState {
   const factory LocationSuccess(
-      {required final LocationEntity locationEntity}) = _$LocationSuccess;
+      {required final LocationEntity locationEntity,
+      required final LocationEntity userLocation}) = _$LocationSuccess;
 
   LocationEntity get locationEntity;
+  LocationEntity get userLocation;
   @JsonKey(ignore: true)
   _$$LocationSuccessCopyWith<_$LocationSuccess> get copyWith =>
       throw _privateConstructorUsedError;
@@ -551,7 +675,9 @@ class _$LocationError implements LocationError {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(LocationEntity locationEntity) success,
+    required TResult Function(
+            LocationEntity locationEntity, LocationEntity userLocation)
+        success,
     required TResult Function(String errorMessage) error,
   }) {
     return error(errorMessage);
@@ -561,7 +687,9 @@ class _$LocationError implements LocationError {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(LocationEntity locationEntity)? success,
+    TResult Function(
+            LocationEntity locationEntity, LocationEntity userLocation)?
+        success,
     TResult Function(String errorMessage)? error,
   }) {
     return error?.call(errorMessage);
@@ -571,7 +699,9 @@ class _$LocationError implements LocationError {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(LocationEntity locationEntity)? success,
+    TResult Function(
+            LocationEntity locationEntity, LocationEntity userLocation)?
+        success,
     TResult Function(String errorMessage)? error,
     required TResult orElse(),
   }) {

@@ -22,5 +22,7 @@
     "auth.on_freelance": "На фрилансе",
     "auth.possible_saloon": "Возможные салоны",
 
-    "common.search": "Поиск"
+
+    "common.search": "Поиск",
+    "common.confirm": "Подтвердить"
 }

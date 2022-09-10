@@ -5,4 +5,5 @@ abstract class Constants {
       'https://showupp.tassvision.uz:3334/api/v1/mobile/master';
   static const String x_mobile_token =
       'c18f6aafcbb961fdaad3fc555419b6074a6fb807e1d6fd3ea2d845e7beebba5efdb57ff0bb91a478962e9bf502a1276737022eab2d97171dd0a43ef755dffe7e';
+  static const String kApiKey = 'AIzaSyBt1l-iWkFJA_VkFLSrVXB8NNeczc3IZN8';
 }
