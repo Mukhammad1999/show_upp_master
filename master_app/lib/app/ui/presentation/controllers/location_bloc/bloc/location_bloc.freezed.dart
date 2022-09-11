@@ -266,7 +266,8 @@ mixin _$LocationState {
     required TResult Function(
             LocationEntity locationEntity, LocationEntity userLocation)
         success,
-    required TResult Function(String errorMessage) error,
+    required TResult Function(String errorMessage, LocationErrorType errorType)
+        error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -275,7 +276,7 @@ mixin _$LocationState {
     TResult Function(
             LocationEntity locationEntity, LocationEntity userLocation)?
         success,
-    TResult Function(String errorMessage)? error,
+    TResult Function(String errorMessage, LocationErrorType errorType)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -284,7 +285,7 @@ mixin _$LocationState {
     TResult Function(
             LocationEntity locationEntity, LocationEntity userLocation)?
         success,
-    TResult Function(String errorMessage)? error,
+    TResult Function(String errorMessage, LocationErrorType errorType)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -374,7 +375,8 @@ class _$LocationLoading implements LocationLoading {
     required TResult Function(
             LocationEntity locationEntity, LocationEntity userLocation)
         success,
-    required TResult Function(String errorMessage) error,
+    required TResult Function(String errorMessage, LocationErrorType errorType)
+        error,
   }) {
     return loading();
   }
@@ -386,7 +388,7 @@ class _$LocationLoading implements LocationLoading {
     TResult Function(
             LocationEntity locationEntity, LocationEntity userLocation)?
         success,
-    TResult Function(String errorMessage)? error,
+    TResult Function(String errorMessage, LocationErrorType errorType)? error,
   }) {
     return loading?.call();
   }
@@ -398,7 +400,7 @@ class _$LocationLoading implements LocationLoading {
     TResult Function(
             LocationEntity locationEntity, LocationEntity userLocation)?
         success,
-    TResult Function(String errorMessage)? error,
+    TResult Function(String errorMessage, LocationErrorType errorType)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -528,7 +530,8 @@ class _$LocationSuccess implements LocationSuccess {
     required TResult Function(
             LocationEntity locationEntity, LocationEntity userLocation)
         success,
-    required TResult Function(String errorMessage) error,
+    required TResult Function(String errorMessage, LocationErrorType errorType)
+        error,
   }) {
     return success(locationEntity, userLocation);
   }
@@ -540,7 +543,7 @@ class _$LocationSuccess implements LocationSuccess {
     TResult Function(
             LocationEntity locationEntity, LocationEntity userLocation)?
         success,
-    TResult Function(String errorMessage)? error,
+    TResult Function(String errorMessage, LocationErrorType errorType)? error,
   }) {
     return success?.call(locationEntity, userLocation);
   }
@@ -552,7 +555,7 @@ class _$LocationSuccess implements LocationSuccess {
     TResult Function(
             LocationEntity locationEntity, LocationEntity userLocation)?
         success,
-    TResult Function(String errorMessage)? error,
+    TResult Function(String errorMessage, LocationErrorType errorType)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -613,7 +616,7 @@ abstract class _$$LocationErrorCopyWith<$Res> {
   factory _$$LocationErrorCopyWith(
           _$LocationError value, $Res Function(_$LocationError) then) =
       __$$LocationErrorCopyWithImpl<$Res>;
-  $Res call({String errorMessage});
+  $Res call({String errorMessage, LocationErrorType errorType});
 }
 
 /// @nodoc
@@ -630,12 +633,17 @@ class __$$LocationErrorCopyWithImpl<$Res>
   @override
   $Res call({
     Object? errorMessage = freezed,
+    Object? errorType = freezed,
   }) {
     return _then(_$LocationError(
       errorMessage: errorMessage == freezed
           ? _value.errorMessage
           : errorMessage // ignore: cast_nullable_to_non_nullable
               as String,
+      errorType: errorType == freezed
+          ? _value.errorType
+          : errorType // ignore: cast_nullable_to_non_nullable
+              as LocationErrorType,
     ));
   }
 }
@@ -643,14 +651,16 @@ class __$$LocationErrorCopyWithImpl<$Res>
 /// @nodoc
 
 class _$LocationError implements LocationError {
-  const _$LocationError({required this.errorMessage});
+  const _$LocationError({required this.errorMessage, required this.errorType});
 
   @override
   final String errorMessage;
+  @override
+  final LocationErrorType errorType;
 
   @override
   String toString() {
-    return 'LocationState.error(errorMessage: $errorMessage)';
+    return 'LocationState.error(errorMessage: $errorMessage, errorType: $errorType)';
   }
 
   @override
@@ -659,12 +669,15 @@ class _$LocationError implements LocationError {
         (other.runtimeType == runtimeType &&
             other is _$LocationError &&
             const DeepCollectionEquality()
-                .equals(other.errorMessage, errorMessage));
+                .equals(other.errorMessage, errorMessage) &&
+            const DeepCollectionEquality().equals(other.errorType, errorType));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(errorMessage));
+      runtimeType,
+      const DeepCollectionEquality().hash(errorMessage),
+      const DeepCollectionEquality().hash(errorType));
 
   @JsonKey(ignore: true)
   @override
@@ -678,9 +691,10 @@ class _$LocationError implements LocationError {
     required TResult Function(
             LocationEntity locationEntity, LocationEntity userLocation)
         success,
-    required TResult Function(String errorMessage) error,
+    required TResult Function(String errorMessage, LocationErrorType errorType)
+        error,
   }) {
-    return error(errorMessage);
+    return error(errorMessage, errorType);
   }
 
   @override
@@ -690,9 +704,9 @@ class _$LocationError implements LocationError {
     TResult Function(
             LocationEntity locationEntity, LocationEntity userLocation)?
         success,
-    TResult Function(String errorMessage)? error,
+    TResult Function(String errorMessage, LocationErrorType errorType)? error,
   }) {
-    return error?.call(errorMessage);
+    return error?.call(errorMessage, errorType);
   }
 
   @override
@@ -702,11 +716,11 @@ class _$LocationError implements LocationError {
     TResult Function(
             LocationEntity locationEntity, LocationEntity userLocation)?
         success,
-    TResult Function(String errorMessage)? error,
+    TResult Function(String errorMessage, LocationErrorType errorType)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
-      return error(errorMessage);
+      return error(errorMessage, errorType);
     }
     return orElse();
   }
@@ -747,10 +761,12 @@ class _$LocationError implements LocationError {
 }
 
 abstract class LocationError implements LocationState {
-  const factory LocationError({required final String errorMessage}) =
-      _$LocationError;
+  const factory LocationError(
+      {required final String errorMessage,
+      required final LocationErrorType errorType}) = _$LocationError;
 
   String get errorMessage;
+  LocationErrorType get errorType;
   @JsonKey(ignore: true)
   _$$LocationErrorCopyWith<_$LocationError> get copyWith =>
       throw _privateConstructorUsedError;

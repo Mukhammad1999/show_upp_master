@@ -2,6 +2,7 @@ import 'package:google_geocoding/google_geocoding.dart' hide Location;
 import 'package:location/location.dart';
 import 'package:master_app/app/constants/constants.dart';
 import 'package:master_app/app/entities/location_entity.dart';
+import 'package:master_app/app/utils/exceptions/custom_exceptions.dart';
 
 class LocationService {
   final GoogleGeocoding _googleGeocoding = GoogleGeocoding(Constants.kApiKey);
@@ -28,15 +29,23 @@ class LocationService {
     _serviceEnabled = await _location.serviceEnabled();
     if (!_serviceEnabled) {
       _serviceEnabled = await _location.requestService();
-      if (!_serviceEnabled) {}
+      if (!_serviceEnabled) {
+        throw ServiceEnabledException();
+      }
     }
 
     _permissionGranted = await _location.hasPermission();
     if (_permissionGranted == PermissionStatus.denied) {
       _permissionGranted = await _location.requestPermission();
       if (_permissionGranted != PermissionStatus.granted) {
-        return;
+        throw PermissionException();
       }
     }
+
+    final _userLocation = await _location.getLocation();
+    return LocationEntity(
+      latitude: _userLocation.latitude ?? 44,
+      longitude: _userLocation.longitude ?? 43,
+    );
   }
 }

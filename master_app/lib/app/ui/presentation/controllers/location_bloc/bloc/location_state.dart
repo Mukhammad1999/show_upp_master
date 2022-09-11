@@ -9,5 +9,12 @@ class LocationState with _$LocationState {
   }) = LocationSuccess;
   const factory LocationState.error({
     required String errorMessage,
+    required LocationErrorType errorType,
   }) = LocationError;
+}
+
+enum LocationErrorType {
+  permissionError,
+  serviceEnableError,
+  fetchLocationError,
 }

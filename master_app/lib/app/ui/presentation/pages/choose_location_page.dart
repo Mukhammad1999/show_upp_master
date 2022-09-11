@@ -58,6 +58,9 @@ class _ChooseLocationPageState extends State<ChooseLocationPage> {
                           ),
                         );
                   },
+                  center: _mapController.center,
+                  maxZoom: 18,
+                  minZoom: 15,
                 ),
                 children: [
                   TileLayer(
@@ -65,18 +68,26 @@ class _ChooseLocationPageState extends State<ChooseLocationPage> {
                         'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
                     subdomains: const ['a', 'b', 'c'],
                   ),
+                  MarkerLayer(
+                    markers: [],
+                  )
                 ],
               );
             },
           ),
-          BlocBuilder<LocationBloc, LocationState>(
+          BlocConsumer<LocationBloc, LocationState>(
+            listener: (context, state) {
+              state.maybeWhen(
+                orElse: () => null,
+              );
+            },
             builder: (context, state) {
               return GeoCodeHolder(
                 geoCode: state.when(
                   loading: () => null,
                   success: (locationEntity, userLocation) =>
                       locationEntity.placeMark,
-                  error: (errorMessage) => 'error'.tr(),
+                  error: (errorMessage, errorType) => 'error'.tr(),
                 ),
               );
             },

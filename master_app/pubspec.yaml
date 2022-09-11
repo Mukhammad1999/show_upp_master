@@ -12,6 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^8.0.1
+  bloc_concurrency: ^0.2.0
   flutter_localizations:
     sdk: flutter
   intl: ^0.17.0
@@ -22,6 +23,9 @@ dependencies:
   flutter_map: ^3.0.0
   google_geocoding: ^0.2.0
   location: ^4.4.0
+
+  #permission
+  permission_handler: ^10.0.0
 
   #localization
   easy_localization: ^3.0.1

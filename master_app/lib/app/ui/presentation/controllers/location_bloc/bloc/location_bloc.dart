@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:location/location.dart';
 import 'package:master_app/app/entities/location_entity.dart';
+import 'package:master_app/app/utils/exceptions/custom_exceptions.dart';
 import 'package:master_app/app/utils/service/location_service.dart';
 
 part 'location_event.dart';
@@ -35,21 +35,32 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
         event.lon,
         event.locale,
       );
-      final userLocation = await _locationService.getLocation();
-      print(userLocation);
+      final userLocation = await _locationService.fetchUserLocation();
       emit(
         LocationSuccess(
           locationEntity: result,
-          userLocation: LocationEntity(
-            latitude: 44,
-            longitude: 43,
-          ),
+          userLocation: userLocation,
+        ),
+      );
+    } on PermissionException catch (e) {
+      emit(
+        LocationState.error(
+          errorMessage: e.toString(),
+          errorType: LocationErrorType.permissionError,
+        ),
+      );
+    } on ServiceEnabledException catch (e) {
+      emit(
+        LocationState.error(
+          errorMessage: e.toString(),
+          errorType: LocationErrorType.serviceEnableError,
         ),
       );
     } catch (e) {
       emit(
         LocationState.error(
           errorMessage: e.toString(),
+          errorType: LocationErrorType.fetchLocationError,
         ),
       );
     }
