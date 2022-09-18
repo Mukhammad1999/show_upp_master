@@ -17,6 +17,8 @@ import 'package:master_app/features/auth/presentation/pages/master_pages/master_
 import 'package:master_app/features/auth/presentation/pages/master_pages/worker_or_freelancer.dart';
 import 'package:master_app/features/auth/presentation/pages/otp_page.dart';
 import 'package:master_app/features/auth/presentation/pages/saloon_form.dart';
+import 'package:master_app/features/auth/presentation/pages/search_employees.dart';
+import 'package:master_app/features/auth/presentation/pages/specify_employees.dart';
 
 class AuthModule extends Module {
   @override
@@ -119,6 +121,18 @@ class AuthModule extends Module {
         ChildRoute<SaloonFormPage>(
           RouteName.saloonFormPage,
           child: (context, args) => SaloonFormPage(),
+        ),
+
+        //navigation to specify employees page for saloon
+        ChildRoute<SaloonFormPage>(
+          RouteName.specifyEmployeesPage,
+          child: (context, args) => SpecifyEmployees(),
+        ),
+
+        //navigation to saloon search employees page
+        ChildRoute<SaloonFormPage>(
+          RouteName.searchEmployeesPage,
+          child: (context, args) => SearchEmployees(),
         ),
       ];
 }

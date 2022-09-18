@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:master_app/app/entities/location_entity.dart';
+import 'package:master_app/app/index/index.dart';
 import 'package:master_app/app/navigation/route_names.dart';
-import 'package:master_app/app/ui/style/app_typography.dart';
-import 'package:master_app/app/ui/widgets/buttons/app_text_button.dart';
+import 'package:master_app/app/ui/widgets/buttons/app_wrapped_text_button.dart';
 import 'package:master_app/app/ui/widgets/curvatures.dart';
 import 'package:master_app/app/ui/widgets/curved_app_bar.dart';
 import 'package:master_app/app/ui/widgets/text_fields/location_text_field.dart';
@@ -31,22 +31,24 @@ class SaloonFormPage extends StatelessWidget {
         appBar: CurvedAppBar(
           backgroundColor: Theme.of(context).primaryColor,
           curvature: Curvature.lined,
-          title: TranslationStrings.role.saloon.tr(),
+          title: TranslationStrings.role.saloon.tr().toUpperCase(),
         ),
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 40),
-          child: BlocBuilder<SaloonBloc, SaloonFormState>(
-              bloc: _saloonBloc,
-              // listener: (context, state) {},
-              builder: (context, state) {
-                return Column(
-                  children: [
-                    SemiBoldTitle(
-                      title: TranslationStrings.auth.yourData.tr(),
-                    ),
-                    Expanded(
-                      flex: 6,
-                      child: Column(
+        body: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 40),
+            child: BlocBuilder<SaloonBloc, SaloonFormState>(
+                bloc: _saloonBloc,
+                // listener: (context, state) {},
+                builder: (context, state) {
+                  return Column(
+                    children: [
+                      SemiBoldTitle(
+                        title: TranslationStrings.auth.yourData.tr(),
+                      ),
+                      const SizedBox(
+                        height: 16,
+                      ),
+                      Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
@@ -66,6 +68,9 @@ class SaloonFormPage extends StatelessWidget {
                               ),
                             ),
                           ),
+                          const SizedBox(
+                            height: 16,
+                          ),
                           LocationTextField(
                             onChanged: (name) {},
                             onButtonTap: (p0) {
@@ -83,6 +88,9 @@ class SaloonFormPage extends StatelessWidget {
                               );
                             },
                             enabled: true,
+                          ),
+                          const SizedBox(
+                            height: 16,
                           ),
                           PhoneFormTextField(
                             isFullFilled: state is FormUpdate &&
@@ -104,39 +112,19 @@ class SaloonFormPage extends StatelessWidget {
                           ),
                         ],
                       ),
-                    ),
-                    const Spacer(
-                      flex: 3,
-                    ),
-                    Expanded(
-                      flex: 3,
-                      child: Align(
-                        alignment: Alignment.bottomCenter,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Text(
-                              TranslationStrings.auth.saloonInfo.tr(),
-                              textAlign: TextAlign.center,
-                              maxLines: 2,
-                              style: AppTypography.smallDescription.copyWith(
-                                color: Theme.of(context).highlightColor,
-                              ),
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                            AppTextButton(
-                              isLoading: false,
-                              title: TranslationStrings.auth.confirm.tr(),
-                              onPressed: () {},
-                            ),
-                          ],
-                        ),
+                      const Spacer(),
+                      AppWrappedTextButton(
+                        isLoading: false,
+                        topText: TranslationStrings.auth.saloonInfo.tr(),
+                        title: TranslationStrings.auth.confirm.tr(),
+                        onPressed: () => Modular.to
+                            .pushNamed(RouteName.specifyEmployeesPage),
                       ),
-                    ),
-                    const Spacer(),
-                  ],
-                );
-              }),
+                      // Spacer()
+                    ],
+                  );
+                }),
+          ),
         ),
       ),
     );

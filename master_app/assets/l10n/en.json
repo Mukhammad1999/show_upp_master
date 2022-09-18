@@ -1,10 +1,7 @@
 {
     "role.choose_role_question":"Choose your role",
-    "role.master": "MASTER",
-    "role.saloon": "SALOON",
-
-
-
+    "role.master": "Master",
+    "role.saloon": "Saloon",
     "auth.your_data": "Your data",
     "auth.fill_in_your_data_des": "Fill in your data to proceed. (all fields are required)",
     "auth.name": "Name",
@@ -24,13 +21,18 @@
     "auth.saloon_worker": "If you work for specific saloon, please, specify in which",
     "auth.on_freelance": "freelance",
     "auth.possible_saloon": "Possible saloons",
-    
+    "auth.specify_employees_description": "Here you can specify your employees",
 
+    "common.specify_later": "Not now",
+    "common.done": "Done",
 
+    "search.search": "Search",
+    "search.import_facebook": "Import from Facebook",
+    "search.import_twitter": "Import from Twitter",
+    "search.all_contacts": "All contacts",
+    "search.possible": "Possible options",
 
+    "contacts.add": "Add",
+    "contacts.added": "Added"
 
-    "common.search": "Search", 
-    "common.confirm": "Confirm"
-
-   
 }

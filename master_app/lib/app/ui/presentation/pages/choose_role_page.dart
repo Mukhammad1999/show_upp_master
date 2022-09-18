@@ -39,7 +39,7 @@ class ChooseRolePage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 AppTextButton(
-                  title: TranslationStrings.role.master.tr(),
+                  title: TranslationStrings.role.master.tr().toUpperCase(),
                   onPressed: () =>
                       Modular.to.pushNamed(RouteName.masterFormPage),
                 ),
@@ -47,9 +47,12 @@ class ChooseRolePage extends StatelessWidget {
                   height: 25,
                 ),
                 AppTextButton(
-                  title: TranslationStrings.role.saloon.tr(),
+                  title: TranslationStrings.role.saloon.tr().toUpperCase(),
                   onPressed: () =>
                       Modular.to.pushNamed(RouteName.saloonFormPage),
+                ),
+                const SizedBox(
+                  height: 22,
                 ),
               ],
             ),

@@ -21,7 +21,7 @@ class MasterFormRegistration extends StatelessWidget {
         resizeToAvoidBottomInset: false,
         appBar: CurvedAppBar(
           curvature: Curvature.rightToLeft,
-          title: TranslationStrings.role.master.tr(),
+          title: TranslationStrings.role.master.tr().toUpperCase(),
           backgroundColor: Theme.of(context).primaryColor,
         ),
         body: BlocConsumer<MasterFormBloc, MasterFormState>(

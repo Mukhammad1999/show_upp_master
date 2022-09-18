@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:master_app/app/index/index.dart';
+import 'package:master_app/app/ui/images/images.dart';
 import 'package:master_app/app/ui/style/app_typography.dart';
 
 ///widget to display curved appbar defined by formula side1Toside2, where side1
@@ -11,6 +14,7 @@ class CurvedAppBar extends StatelessWidget implements PreferredSizeWidget {
     required this.curvature,
     this.backgroundColor,
   });
+
   final String? title;
   final Curvature curvature;
   final Color? backgroundColor;
@@ -18,6 +22,12 @@ class CurvedAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      leading: IconButton(
+        icon: SvgPicture.asset(
+          SvgImages.arrowLeft,
+        ),
+        onPressed: () => Modular.to.pop(),
+      ),
       elevation: 0,
       shape: _getCurvatureByEnum(curvature),
       backgroundColor: backgroundColor ?? Theme.of(context).primaryColor,

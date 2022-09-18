@@ -4,6 +4,8 @@ class TranslationStrings {
   static _Role role = _Role();
   static _Auth auth = _Auth();
   static _Common common = _Common();
+  static _Search search = _Search();
+  static _Contacts contacts = _Contacts();
 }
 
 class _Role {
@@ -32,9 +34,24 @@ class _Auth {
   final String saloonWorker = 'auth.saloon_worker';
   final String onFreelance = 'auth.on_freelance';
   final String possibleSaloons = 'auth.possible_saloon';
+  final String specifyEmployeesDescription =
+      'auth.specify_employees_description';
 }
 
 class _Common {
-  final String search = 'common.search';
-  final String confirm = 'common.confirm';
+  final String specifyLater = 'common.specify_later';
+  final String done = 'common.done';
+}
+
+class _Search {
+  final String search = 'search.search';
+  final String allContacts = 'search.all_contacts';
+  final String possibleOptions = 'search.possible_options';
+  final String importFromFb = 'search.import_facebook';
+  final String importFromTwitter = 'search.import_twitter';
+}
+
+class _Contacts {
+  final String add = 'contacts.add';
+  final String added = 'contacts.added';
 }

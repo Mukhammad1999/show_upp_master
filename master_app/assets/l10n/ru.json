@@ -1,7 +1,7 @@
 {
     "role.choose_role_question":"Кем вы являетесь?",
-    "role.master": "МАСТЕР",
-    "role.saloon": "САЛОН",
+    "role.master": "Мастер",
+    "role.saloon": "Салон",
     "auth.your_data": "Ваши данные",
     "auth.fill_in_your_data_des": "Заполните данные для последующих действий (все пункты объязательны)",
     "auth.name": "Имя",
@@ -21,8 +21,17 @@
     "auth.saloon_worker": "Если вы работаете в салоне, пожалуйста,  укажите в каком",
     "auth.on_freelance": "На фрилансе",
     "auth.possible_saloon": "Возможные салоны",
+    "auth.specify_employees_description": "Тут вы можете указать своих сотрудников",
 
+    "common.specify_later": "Указать позже",
+    "common.done": "Готово",
 
-    "common.search": "Поиск",
-    "common.confirm": "Подтвердить"
+    "search.search": "Поиск",
+    "search.import_facebook": "Импортировать с Facebook",
+    "search.import_twitter": "Импортировать с Twitter",
+    "search.all_contacts": "Все контакты",
+    "search.possible": "Возможные",
+
+    "contacts.add": "Добавить",
+    "contacts.added": "Добавлен(а)"
 }

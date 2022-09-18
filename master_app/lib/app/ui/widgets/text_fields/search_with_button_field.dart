@@ -3,24 +3,26 @@ import 'package:flutter/material.dart';
 import 'package:master_app/app/ui/style/app_typography.dart';
 import 'package:master_app/localization/translation_strings.dart';
 
-class SearchTextField extends StatefulWidget {
-  const SearchTextField({
+class SearchWithButtonField extends StatefulWidget {
+  const SearchWithButtonField({
     super.key,
     this.onTap,
     this.onChanged,
     required this.enabled,
+    this.showCursor,
     this.onButtonTap,
   });
   final VoidCallback? onTap;
   final Function(String)? onChanged;
   final bool? enabled;
+  final bool? showCursor;
   final Function(String)? onButtonTap;
 
   @override
-  State<SearchTextField> createState() => _SearchTextFieldState();
+  State<SearchWithButtonField> createState() => _SearchWithButtonFieldState();
 }
 
-class _SearchTextFieldState extends State<SearchTextField> {
+class _SearchWithButtonFieldState extends State<SearchWithButtonField> {
   late final TextEditingController _textEditingController;
 
   @override
@@ -40,6 +42,7 @@ class _SearchTextFieldState extends State<SearchTextField> {
     return TextField(
       onChanged: widget.onChanged,
       enabled: widget.enabled,
+      showCursor: widget.showCursor ?? true,
       onTap: widget.onTap,
       decoration: InputDecoration(
         contentPadding: const EdgeInsets.fromLTRB(21, 6, 6, 6),
@@ -48,9 +51,21 @@ class _SearchTextFieldState extends State<SearchTextField> {
             _textEditingController.value.text,
           ),
         ),
-        hintText: TranslationStrings.common.search.tr().toUpperCase(),
+        hintText: TranslationStrings.search.search.tr().toUpperCase(),
         hintStyle: AppTypography.appBarTitleStyle.copyWith(
           color: Theme.of(context).hintColor,
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15),
+          borderSide: BorderSide(
+            color: Theme.of(context).primaryColor,
+          ),
+        ),
+        disabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15),
+          borderSide: BorderSide(
+            color: Theme.of(context).primaryColor,
+          ),
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(15),

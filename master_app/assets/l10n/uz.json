@@ -1,7 +1,7 @@
 {
     "role.choose_role_question":"Kim bo'lib ishlaysiz?",
-    "role.master": "USTA",
-    "role.saloon": "SALON",
+    "role.master": "Usta",
+    "role.saloon": "Salon",
     "auth.your_data": "sizning ma'lumotlaringiz",
     "auth.fill_in_your_data_des": "keyingi harakatlar uchun ma'lumotlarni to'ldiring(barcha fikrlar talab qilinadi)",
     "auth.name": "Ism",
@@ -20,10 +20,18 @@
     "auth.or" : "YOKI",
     "auth.saloon_worker": "Salonda ishlasangiz, iltimos, qaysidaligini belgilang",
     "auth.possible_saloon": "Mumkin bo'lgan salonlar",
+    "auth.on_freelance": "Freelansda",
+    "auth.specify_employees_description": "Bu yerda o'z ischilaringizni belgilashingiz mumkin",
 
-    "common.search": "Qidirish",
-    "common.confirm": "Tasdiqlash",
-    "auth.on_freelance": "Freelansda"
+    "common.specify_later": "Keyinroq",
+    "common.done": "Tayyor",
 
-    
+    "search.search": "Qidirish",
+    "search.import_facebook": "Facebook-dan import qilish",
+    "search.import_twitter": "Twitter-dan import qilish",
+    "search.all_contacts": "Barcha kontaktlar",
+    "search.possible": "Ehtimoliy variantlar",
+
+    "contacts.add": "Qo'shish",
+    "contacts.added": "Qo'shilgan"
 }

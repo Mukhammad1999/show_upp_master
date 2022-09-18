@@ -7,7 +7,7 @@ import 'package:master_app/app/ui/widgets/buttons/app_text_button.dart';
 import 'package:master_app/app/ui/widgets/cartoon_displayer.dart';
 import 'package:master_app/app/ui/widgets/curvatures.dart';
 import 'package:master_app/app/ui/widgets/curved_app_bar.dart';
-import 'package:master_app/app/ui/widgets/text_fields/search_text_field.dart';
+import 'package:master_app/app/ui/widgets/text_fields/search_with_button_field.dart';
 import 'package:master_app/app/ui/widgets/titles.dart';
 import 'package:master_app/localization/translation_strings.dart';
 
@@ -29,7 +29,7 @@ class WorkerOrFreelancerPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             SemiBoldTitle(
-              title: TranslationStrings.role.master.tr(),
+              title: TranslationStrings.role.master.tr().toUpperCase(),
             ),
             const CartoonDisplayer(
               assetName: 'assets/svg/master.svg',
@@ -49,7 +49,7 @@ class WorkerOrFreelancerPage extends StatelessWidget {
               },
               child: const Hero(
                 tag: 'chooseSaloon',
-                child: SearchTextField(
+                child: SearchWithButtonField(
                   enabled: false,
                 ),
               ),

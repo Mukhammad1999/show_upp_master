@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:master_app/app/ui/style/app_typography.dart';
-import 'package:master_app/app/ui/widgets/text_fields/search_text_field.dart';
+import 'package:master_app/app/ui/widgets/text_fields/search_with_button_field.dart';
 import 'package:master_app/localization/translation_strings.dart';
 
 class ChooseSaloonPage extends StatelessWidget {
@@ -19,7 +19,7 @@ class ChooseSaloonPage extends StatelessWidget {
         children: [
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 17.0),
-            child: SearchTextField(
+            child: SearchWithButtonField(
               enabled: true,
             ),
           ),
