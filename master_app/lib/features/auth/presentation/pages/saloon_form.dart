@@ -1,7 +1,10 @@
+import 'dart:developer';
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:master_app/app/entities/location_entity.dart';
 import 'package:master_app/app/navigation/route_names.dart';
 import 'package:master_app/app/ui/style/app_typography.dart';
 import 'package:master_app/app/ui/widgets/buttons/app_text_button.dart';
@@ -70,6 +73,12 @@ class SaloonFormPage extends StatelessWidget {
                                 RouteName.chooseLocationPage,
                                 arguments: {
                                   'title': TranslationStrings.role.saloon.tr(),
+                                  'onChooseLocation':
+                                      (LocationEntity locationEntity) {
+                                    //TODO You MIght rework here)
+                                    log(locationEntity.toString());
+                                    Modular.to.pop();
+                                  },
                                 },
                               );
                             },

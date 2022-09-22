@@ -32,7 +32,9 @@ class AppTextButton extends StatelessWidget {
       onPressed: onPressed,
       child: isLoading != null
           ? isLoading!
-              ? Center(
+              ? SizedBox(
+                  height: 18,
+                  width: MediaQuery.of(context).size.width / 3.5,
                   child: SpinKitFadingCircle(
                     color: Theme.of(context).backgroundColor,
                     size: 18,

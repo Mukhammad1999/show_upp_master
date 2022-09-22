@@ -1,23 +1,33 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:master_app/app/entities/location_entity.dart';
 import 'package:master_app/app/utils/exceptions/custom_exceptions.dart';
 import 'package:master_app/app/utils/service/location_service.dart';
-
+import 'package:rxdart/transformers.dart';
 part 'location_event.dart';
 part 'location_state.dart';
 part 'location_bloc.freezed.dart';
 
 class LocationBloc extends Bloc<LocationEvent, LocationState> {
-  LocationBloc({required LocationService locationService})
-      : _locationService = locationService,
+  LocationBloc({
+    required LocationService locationService,
+  })  : _locationService = locationService,
         super(
           const LocationLoading(),
         ) {
     on<LocationEvent>((event, emit) {});
-    on<FetchLocation>(_fetchLocation);
+    on<FetchLocation>(
+      _fetchLocation,
+      transformer: (events, mapper) => droppable<FetchLocation>().call(
+        events.throttleTime(
+          const Duration(milliseconds: 500),
+        ),
+        mapper,
+      ),
+    );
   }
 
   final LocationService _locationService;
@@ -35,11 +45,9 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
         event.lon,
         event.locale,
       );
-      final userLocation = await _locationService.fetchUserLocation();
       emit(
         LocationSuccess(
           locationEntity: result,
-          userLocation: userLocation,
         ),
       );
     } on PermissionException catch (e) {

@@ -7,4 +7,8 @@ class LocationEvent with _$LocationEvent {
     required double lon,
     required String locale,
   }) = FetchLocation;
+
+  const factory LocationEvent.getUserLocation({
+    required String locale,
+  }) = GetUserLocation;
 }

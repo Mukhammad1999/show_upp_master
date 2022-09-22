@@ -8,11 +8,14 @@ environment:
   flutter: 3.0.4
 
 dependencies:
+  #state managements
   bloc: ^8.0.3
   flutter:
     sdk: flutter
   flutter_bloc: ^8.0.1
   bloc_concurrency: ^0.2.0
+  rxdart: ^0.27.5
+
   flutter_localizations:
     sdk: flutter
   intl: ^0.17.0
@@ -20,7 +23,7 @@ dependencies:
   flutter_modular: ^5.0.3
 
   #map
-  flutter_map: ^3.0.0
+  flutter_map: ^0.13.1
   google_geocoding: ^0.2.0
   location: ^4.4.0
 
@@ -44,6 +47,9 @@ dependencies:
   #local_storage
   flutter_secure_storage: ^6.0.0
   auto_size_text: ^3.0.0
+
+  #animations
+  rive: ^0.9.1
   
   
   
@@ -67,6 +73,7 @@ flutter:
     - assets/
     - assets/l10n/
     - assets/svg/
+    - assets/elements/
   fonts:
     - family: Montserrat
       fonts:

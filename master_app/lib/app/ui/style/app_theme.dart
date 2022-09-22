@@ -20,7 +20,6 @@ abstract class AppTheme {
           titleTextStyle: AppTypography.appBarTitleStyle.copyWith(
             color: AppColorsLight.primaryColor,
           ),
-          foregroundColor: AppColorsLight.primaryColor,
         ),
       );
 }
